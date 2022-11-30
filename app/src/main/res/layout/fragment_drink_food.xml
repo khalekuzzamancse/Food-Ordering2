@@ -12,11 +12,12 @@
         tools:context=".FoodList_1_Fragment">
 
         <LinearLayout
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:id="@+id/burger"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="#FFD1D1"
             android:elevation="15dp"
             android:orientation="horizontal">
 
@@ -58,6 +59,9 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:text="Add to cart"
                     android:textColor="@color/black" />
 
@@ -65,11 +69,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:id="@+id/Pizza"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="#FFD1D1"
             android:elevation="15dp"
             android:orientation="horizontal">
 
@@ -111,6 +116,9 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:text="Add to cart"
                     android:textColor="@color/black" />
 
@@ -119,11 +127,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:id="@+id/Bread"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="#FFD1D1"
             android:elevation="15dp"
             android:orientation="horizontal">
 
@@ -166,6 +175,9 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Add to cart"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:textColor="@color/black" />
 
             </LinearLayout>
@@ -173,11 +185,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:id="@+id/Food4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="#FFD1D1"
             android:elevation="15dp"
             android:orientation="horizontal">
 
@@ -220,6 +233,9 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Add to cart"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:textColor="@color/black" />
 
             </LinearLayout>
@@ -227,11 +243,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:id="@+id/Food5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="#FFD1D1"
             android:elevation="15dp"
             android:orientation="horizontal">
 
@@ -273,6 +290,9 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:text="Add to cart"
                     android:textColor="@color/black" />
 

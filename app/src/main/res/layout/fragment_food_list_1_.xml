@@ -17,7 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:elevation="15dp"
-            android:background="#FFD1D1"
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -56,6 +57,9 @@
                     android:id="@+id/btn_foodItem_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -70,7 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:elevation="15dp"
-            android:background="#FFD1D1"
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -112,6 +117,9 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:text="Add to cart"
                     android:textColor="@color/black" />
 
@@ -124,7 +132,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:elevation="15dp"
-            android:background="#FFD1D1"
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -165,6 +174,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:gravity="center"
                     android:text="Add to cart"
                     android:textColor="@color/black" />
@@ -178,7 +190,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:elevation="15dp"
-            android:background="#FFD1D1"
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -220,6 +233,9 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:text="Add to cart"
                     android:textColor="@color/black" />
 
@@ -232,7 +248,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:elevation="15dp"
-            android:background="#FFD1D1"
+            android:padding="8dp"
+            android:background="@drawable/item_show_background"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -276,6 +293,9 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Add to cart"
+                    android:background="@drawable/circle_background"
+                    android:backgroundTint="#7CF4FF"
+                    android:textAllCaps="false"
                     android:textColor="@color/black" />
 
             </LinearLayout>
