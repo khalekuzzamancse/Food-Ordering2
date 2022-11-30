@@ -8,6 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirmation Order"
+android:background="@drawable/rectangle_background"
+        android:backgroundTint="#6AEBEF"
         android:layout_gravity="center"
         android:textSize="20sp"
         android:textColor="@color/black"
@@ -17,6 +19,7 @@
         android:id="@+id/needToPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:text="Needed To Pay :"
         android:layout_gravity="center"
         android:textSize="20sp"
@@ -54,14 +57,24 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:layout_margin="16dp"
             android:id="@+id/dialoge_btn_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#61E692"
+            android:background="@drawable/button_background_2"
+            android:elevation="5dp"
             android:text="Submit" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/dialoge_btn_2"
+            android:layout_margin="16dp"
+            android:backgroundTint="#F80707"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/button_background_2"
+            android:elevation="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

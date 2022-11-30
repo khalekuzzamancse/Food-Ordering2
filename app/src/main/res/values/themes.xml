@@ -13,4 +13,55 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxStrokeColor">#0F0F0F</item>
+
+    </style>
+
+    <style name="TextInputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:textSize">15sp</item>
+        <item name="maxLines">1</item>
+
+    </style>
+
+    <style name="TextButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+
+    </style>
+
+    <style name="Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#0F0F0F</item>
+
+    </style>
+    <style name="ProgessBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="GuidLineVertical">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+
 </resources>

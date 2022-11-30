@@ -8,17 +8,18 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/orderNow"
-        android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/button_background_2"
+        android:elevation="5dp"
         android:text="Order Now"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"

@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,10 +46,11 @@ public class Cart_Activity extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         r.setLayoutManager(linearLayoutManager);
         r.setAdapter(adapter2);
+        //
+        Dialog dialog=new Dialog(this);
+        dialog.setContentView(R.layout.dialouge);
         button = findViewById(R.id.orderNow);
         button.setOnClickListener(view -> {
-            Dialog dialog=new Dialog(this);
-            dialog.setContentView(R.layout.dialouge);
 //            TextView tv=findViewById(R.id.needToPay);
 //            tv.setText("H");
 
@@ -66,9 +70,17 @@ public class Cart_Activity extends AppCompatActivity {
             }
             TextView tv=dialog.findViewById(R.id.needToPay);
             String s=String.valueOf(sum);
-            tv.setText("Need To Pay : "+s+"Tk.");
+            tv.setText("Need To Pay : "+s+" Tk.");
 
             // Log.i("TotalPrice", String.valueOf(CartActivityData.totalCost)+"->");
+        });
+        Button submit=dialog.findViewById(R.id.dialoge_btn_1);
+        Button cancel=dialog.findViewById(R.id.dialoge_btn_2);
+        submit.setOnClickListener(view -> {
+            dialog.dismiss();
+        });
+        cancel.setOnClickListener(view -> {
+            dialog.dismiss();
         });
     }
 
