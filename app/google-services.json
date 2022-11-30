@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "498007648198",
+    "project_id": "shan-4f373",
+    "storage_bucket": "shan-4f373.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498007648198:android:a9f1e3d5642953c21a34c7",
+        "android_client_info": {
+          "package_name": "com.example.attendanceApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498007648198-0tls753dv5u2ui1tbtmg2pgq3klre27g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGCj97NswPLUlNC3a5FsLIENXIH4POv_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498007648198-0tls753dv5u2ui1tbtmg2pgq3klre27g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498007648198:android:4c43e23690ed6b861a34c7",
+        "android_client_info": {
+          "package_name": "com.example.foodordering"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498007648198-0tls753dv5u2ui1tbtmg2pgq3klre27g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGCj97NswPLUlNC3a5FsLIENXIH4POv_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498007648198-0tls753dv5u2ui1tbtmg2pgq3klre27g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

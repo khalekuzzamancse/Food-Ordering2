@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="6dp">
+    tools:context=".LoginActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineLeft"
@@ -21,11 +21,10 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ActivityLogin_TextInputLayout_Email"
         style="@style/TextInputLayout"
-        android:layout_marginTop="50dp"
         android:hint="Enter Email"
         app:layout_constraintEnd_toEndOf="@id/guidelineRight"
         app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:startIconDrawable="@drawable/icon_email">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -57,7 +56,6 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:text="Login"
-        android:background="@drawable/button_background_1"
         app:layout_constraintEnd_toEndOf="@id/guidelineRight"
         app:layout_constraintStart_toEndOf="@id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/ActivityLogin_TextInputLayout_Password" />
@@ -73,7 +71,7 @@
     <Button
         android:id="@+id/ActivityLogin_Button_Register"
         style="@style/TextButton"
-        android:layout_marginTop="50dp"
+        android:layout_marginEnd="12dp"
         android:text="Register"
         app:layout_constraintEnd_toEndOf="@+id/ActivityLogin_Button_ForgetPassword"
         app:layout_constraintTop_toBottomOf="@+id/ActivityLogin_Button_ForgetPassword" />
@@ -90,8 +88,21 @@
         android:id="@+id/ActivityLogin_ProgessBar"
         style="@style/ProgessBar"
         android:layout_marginStart="184dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@id/guidelineRight"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@+id/ActivityLogin_TextInputLayout_Password" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="306dp"
+        android:layout_height="218dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

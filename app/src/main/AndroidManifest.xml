@@ -10,9 +10,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FoodOrdering"
         tools:targetApi="31">
         <activity
+            android:theme="@style/Theme.FoodOrdering"
+            android:name=".RegisterActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:theme="@style/Theme.FoodOrdering"
             android:name=".LoginActivity"
             android:exported="false">
             <meta-data
@@ -20,6 +28,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:theme="@style/Theme.FoodOrdering"
             android:name=".Cart_Activity"
             android:exported="false">
             <meta-data
@@ -27,6 +36,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:theme="@style/Theme.FoodOrdering2"
             android:name=".FoodDashBoard_Activity"
             android:exported="false">
             <meta-data
@@ -34,6 +44,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:theme="@style/Theme.FoodOrdering"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
