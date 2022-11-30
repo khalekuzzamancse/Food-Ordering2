@@ -6,7 +6,10 @@
     style="?attr/materialCardViewElevatedStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:padding="8dp"
+    android:layout_margin="4dp"
+    android:backgroundTint="#FBE947"
+    android:background="@drawable/item_show_background"
     app:cardElevation="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +23,7 @@
             android:id="@+id/DragNameOrder"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:padding="5dp"
+            android:padding="8dp"
             android:text="name"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -46,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/DragNameOrder">
 
             <AutoCompleteTextView
-                android:padding="5dp"
+                android:padding="8dp"
                 android:id="@+id/AmountRecyler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
