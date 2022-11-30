@@ -64,7 +64,7 @@ public class FoodDashBoard_Activity extends AppCompatActivity {
         {
             FirebaseAuth.getInstance().signOut();
             Log.i("MEnyHHH","clicked");
-            startActivity(new Intent(this,LoginActivity.class));
+            startActivity(new Intent(this,MainActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
