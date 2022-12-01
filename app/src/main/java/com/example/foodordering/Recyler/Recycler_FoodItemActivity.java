@@ -88,11 +88,16 @@ public class Recycler_FoodItemActivity extends RecyclerView.Adapter<View_Holder>
             holder.spinner.setSelection(list.get(pos).quantity);
             holder.spinner.setVisibility(View.GONE);
             holder.delete.setVisibility(View.VISIBLE);
-            holder.quantity.setText(list.get(pos).quantity);
+            String quantity = String.valueOf(list.get(pos).quantity);
+            holder.quantity.setText("Quantity : " + quantity);
+            String tot = String.valueOf(list.get(pos).price * list.get(pos).quantity);
+            holder.tot_price.setText("Total Price : " + tot + " Tk.");
+
         } else {
             holder.delete.setVisibility(View.GONE);
             holder.tot_price.setVisibility(View.GONE);
             holder.quantity.setVisibility(View.GONE);
+
         }
 
 

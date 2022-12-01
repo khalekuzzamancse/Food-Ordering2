@@ -60,6 +60,8 @@ public class Cart_Activity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         r.setLayoutManager(linearLayoutManager);
         r.setAdapter(adapter);
+        button = findViewById(R.id.orderNow);
+
 
         for (int i = 0; i < list.size(); i++) {
 
@@ -72,7 +74,6 @@ public class Cart_Activity extends AppCompatActivity {
     void showDialoge() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialouge);
-        button = findViewById(R.id.orderNow);
         button.setOnClickListener(view -> {
 //            TextView tv=findViewById(R.id.needToPay);
 //            tv.setText("H");
@@ -83,8 +84,8 @@ public class Cart_Activity extends AppCompatActivity {
 
 
             int sum = 0;
-            for (int i = 0; i < 9; i++) {
-                sum = sum + (CartActivityData.priceList.get(i) * CartActivityData.selectedItem.get(i));
+            for (int i = 0; i < list.size(); i++) {
+                sum = sum + (list.get(i).quantity * (list.get(i).price));
                 // Log.i("TotalCost", String.valueOf(sum)+"\n");
                 String s = String.valueOf(sum);
                 //  button.setText(s);
