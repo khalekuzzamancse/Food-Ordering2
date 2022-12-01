@@ -2,28 +2,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
     android:layout_margin="8dp"
-    android:elevation="10dp"
     android:background="@drawable/item_show_background"
-    android:orientation="vertical">
+    android:elevation="10dp"
+    android:orientation="horizontal"
+    android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/FoodItemList_RecylerLayout_ImagVw"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-         />
-
-    <TextView
-        android:id="@+id/FoodItemList_RecylerLayout_ItemName"
+    <LinearLayout
+        android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Item Name" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/FoodItemList_RecylerLayout_Price"
+        <ImageView
+            android:id="@+id/FoodItemList_RecylerLayout_ImagVw"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/FoodItemList_RecylerLayout_ItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Name"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/FoodItemList_RecylerLayout_Price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Price"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <Spinner
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Item Price" />
+        android:entries="@array/Count" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/ic_delete" />
+
+        <ImageButton
+            android:id="@+id/addToCart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/plus" />
+    </LinearLayout>
+
 
 </LinearLayout>

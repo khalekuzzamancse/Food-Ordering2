@@ -12,6 +12,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.checkerframework.checker.units.qual.C;
+
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser user = mAuth.getCurrentUser();
@@ -28,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         //startActivity(new Intent(this,FoodDashBoard_Activity.class));
         // setContentView(R.layout.activity_food_dash_board);
         //  setContentView(R.layout.fragment_food_list_1_);
-        startActivity(new Intent(this,FoodItem_Activity.class));
+        // startActivity(new Intent(this,FoodItem_Activity.class));
+        startActivity(new Intent(this, Cart_Activity.class));
 
 //        new Handler().postDelayed(new Runnable() {
 //            @Override

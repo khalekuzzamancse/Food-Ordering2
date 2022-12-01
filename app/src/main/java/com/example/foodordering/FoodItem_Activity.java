@@ -24,6 +24,8 @@ public class FoodItem_Activity extends AppCompatActivity {
         //initializing list
         list = new ArrayList<>();
         list.add(0, new Domain_FoodList("Burger", R.drawable.burger, 60));
+        list.add(1, new Domain_FoodList("Pizza", R.drawable.pizza, 350));
+
         adapter = new Recycler_FoodItemActivity(FoodItem_Activity.this, list);
         RecyclerView r = findViewById(R.id.recylerView_FoodItemActivity);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
