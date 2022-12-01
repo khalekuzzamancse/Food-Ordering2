@@ -82,7 +82,7 @@ public class Cart_Activity extends AppCompatActivity {
             Window window = dialog.getWindow();
             window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 
-
+//updating total price
             int sum = 0;
             for (int i = 0; i < list.size(); i++) {
                 sum = sum + (list.get(i).quantity * (list.get(i).price));
