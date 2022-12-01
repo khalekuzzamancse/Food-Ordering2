@@ -4,10 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".FoodItem_Activity">
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recylerView_FoodItemActivity"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cartB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cart" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recylerView_FoodItemActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

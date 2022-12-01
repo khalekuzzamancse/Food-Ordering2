@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodordering.CartActivityData;
+import com.example.foodordering.Cart_Activity;
 import com.example.foodordering.R;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -48,16 +50,24 @@ public class Recycler_FoodItemActivity extends RecyclerView.Adapter<View_Holder>
 
 
         holder.add.setOnClickListener(view -> {
-            Snackbar snackbar = Snackbar
-                    .make(holder.ItemPrice, "Added To Cart", Snackbar.LENGTH_LONG);
-            snackbar.setBackgroundTint(ContextCompat.getColor(context, R.color.purple_700));
-            snackbar.show();
+            TextView textView = (TextView) holder.spinner.getSelectedView();
+            String s = textView.getText().toString();
+            if (s.equals("Quantity")) {
+                showSnapbar(holder, "Please,select  Quantity");
+            } else {
+                Domain_FoodList d = list.get(pos);
+                d.isCartActivity = true;
+                d.quantity = Integer.parseInt(s);
+                Cart_Activity.list.add(d);
+                showSnapbar(holder, "Added To Cart");
+            }
+
         });
         holder.delete.setOnClickListener(view -> {
-            Snackbar snackbar = Snackbar
-                    .make(holder.ItemPrice, "Deleted From Cart", Snackbar.LENGTH_LONG);
-            snackbar.setBackgroundTint(ContextCompat.getColor(context, R.color.purple_500));
-            snackbar.show();
+            // int pos = viewHolder.getAdapterPosition();
+            list.remove(pos);
+            notifyItemRemoved(pos);
+            showSnapbar(holder, "Deleted Successfully");
         });
         holder.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -73,12 +83,17 @@ public class Recycler_FoodItemActivity extends RecyclerView.Adapter<View_Holder>
             }
         });
         ////
-        if (list.get(pos).isCartActivity)
-        {
+        if (list.get(pos).isCartActivity == true) {
             holder.add.setVisibility(View.GONE);
-            holder.   spinner.setSelection(5);
+            holder.spinner.setSelection(list.get(pos).quantity);
+            holder.spinner.setVisibility(View.GONE);
+            holder.delete.setVisibility(View.VISIBLE);
+            holder.quantity.setText(list.get(pos).quantity);
+        } else {
+            holder.delete.setVisibility(View.GONE);
+            holder.tot_price.setVisibility(View.GONE);
+            holder.quantity.setVisibility(View.GONE);
         }
-
 
 
     }
@@ -88,16 +103,23 @@ public class Recycler_FoodItemActivity extends RecyclerView.Adapter<View_Holder>
         return list.size();
     }
 
+    void showSnapbar(View_Holder holder, String msg) {
+        Snackbar snackbar = Snackbar
+                .make(holder.ItemPrice, msg, Snackbar.LENGTH_LONG);
+        snackbar.setBackgroundTint(ContextCompat.getColor(context, R.color.purple_500));
+        snackbar.show();
+    }
+
 
 }
 
 class View_Holder extends RecyclerView.ViewHolder {
-    public TextView ItemName;
-    public TextView ItemPrice;
+    public TextView ItemName, ItemPrice, tot_price, quantity;
     public ImageButton delete;
     public ImageButton add;
     public ImageView img;
     public Spinner spinner;
+
 
     public View_Holder(@NonNull View view) {
         super(view);
@@ -107,6 +129,8 @@ class View_Holder extends RecyclerView.ViewHolder {
         spinner = view.findViewById(R.id.spinner);
         delete = view.findViewById(R.id.delete);
         add = view.findViewById(R.id.addToCart);
+        quantity = view.findViewById(R.id.quantity);
+        tot_price = view.findViewById(R.id.tot_price);
     }
 }
 

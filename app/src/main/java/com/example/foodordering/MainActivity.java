@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         // setContentView(R.layout.activity_food_dash_board);
         //  setContentView(R.layout.fragment_food_list_1_);
         // startActivity(new Intent(this,FoodItem_Activity.class));
-        startActivity(new Intent(this, Cart_Activity.class));
+        startActivity(new Intent(this, FoodItem_Activity.class));
 
 //        new Handler().postDelayed(new Runnable() {
 //            @Override

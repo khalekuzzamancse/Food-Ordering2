@@ -10,6 +10,7 @@ public class CartActivityData {
     private static CartActivityData dataObject;
     public static int totalCost=0;
 
+
     private CartActivityData() {
         foodList = new ArrayList<>();
         priceList = new ArrayList<>();

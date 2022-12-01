@@ -25,7 +25,7 @@ public class Cart_Activity extends AppCompatActivity {
     AdapteRecyler_OrderActivity adapter2;
     List<DataType_OrderList> orderList;
     AppCompatButton button;
-    List<Domain_FoodList> list;
+    public static List<Domain_FoodList> list = new ArrayList<>();
     Recycler_FoodItemActivity adapter;
 
     @Override
@@ -51,15 +51,25 @@ public class Cart_Activity extends AppCompatActivity {
 //        r.setLayoutManager(linearLayoutManager);
 //        r.setAdapter(adapter2);
         //
-        list = new ArrayList<>();
-        list.add(0, new Domain_FoodList("Burger", R.drawable.burger, 60,true));
-        list.add(1, new Domain_FoodList("Pizza", R.drawable.pizza, 350,true));
+        // list = new ArrayList<>();
+//        list.add(0, new Domain_FoodList("Burger", R.drawable.burger, 60,true));
+//        list.add(1, new Domain_FoodList("Pizza", R.drawable.pizza, 350,true));
 
         adapter = new Recycler_FoodItemActivity(Cart_Activity.this, list);
         RecyclerView r = findViewById(R.id.recycler);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         r.setLayoutManager(linearLayoutManager);
         r.setAdapter(adapter);
+
+        for (int i = 0; i < list.size(); i++) {
+
+        }
+        showDialoge();
+
+
+    }
+
+    void showDialoge() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialouge);
         button = findViewById(R.id.orderNow);
