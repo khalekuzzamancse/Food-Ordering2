@@ -115,6 +115,11 @@ public class Recycler_FoodItemActivity extends RecyclerView.Adapter<View_Holder>
         snackbar.show();
     }
 
+    public void setFilterList(List<Domain_FoodList> L) {
+        this.list = L;
+        notifyDataSetChanged();
+    }
+
 
 }
 

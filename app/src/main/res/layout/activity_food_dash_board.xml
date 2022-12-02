@@ -10,6 +10,18 @@
     <include
         android:id="@+id/include"
         layout="@layout/layout_toolbar_for_non_home_activity" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/app_name"
+        android:padding="5dp"
+        android:src="@drawable/food_title" />
 
     <ImageView
         android:id="@+id/food_cart"
@@ -20,23 +32,8 @@
         android:contentDescription="@string/app_name"
         android:padding="5dp"
         android:src="@drawable/ic_food_cart" />
+</LinearLayout>
 
-
-    <EditText
-        android:id="@+id/food_search"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_margin="8dp"
-        android:background="@drawable/rectangle_background"
-        android:backgroundTint="#C6B8EFBB"
-        android:drawablePadding="16dp"
-        android:gravity="center_vertical"
-        android:inputType="textPersonName"
-        android:maxLines="1"
-        android:padding="10dp"
-        android:textColor="@android:color/black"
-        android:textSize="17sp"
-        app:drawableStartCompat="@drawable/ic_food_search" />
 
 
     <HorizontalScrollView

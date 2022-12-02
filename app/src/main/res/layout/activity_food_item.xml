@@ -7,17 +7,31 @@
     android:orientation="vertical"
     tools:context=".FoodItem_Activity">
 
-    <ImageView
-        android:layout_gravity="end"
-        android:id="@+id/cartB"
+    <LinearLayout
         android:layout_margin="8dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:padding="5dp"
-        android:src="@drawable/ic_food_cart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_weight="1"
+            android:id="@+id/searchView"
+            app:queryHint="Search Food"
+            android:layout_width="wrap_content"
+            android:backgroundTint="#A9E8E2"
+            android:background="@drawable/button_background_2"
+            android:layout_height="40dp" />
+
+        <ImageView
+            android:id="@+id/cartB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="8dp"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:src="@drawable/ic_food_cart" />
+    </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
