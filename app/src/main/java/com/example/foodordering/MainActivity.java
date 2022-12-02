@@ -31,19 +31,21 @@ public class MainActivity extends AppCompatActivity {
         // setContentView(R.layout.activity_food_dash_board);
         //  setContentView(R.layout.fragment_food_list_1_);
         // startActivity(new Intent(this,FoodItem_Activity.class));
-        startActivity(new Intent(this, FoodItem_Activity.class));
-
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (user != null)
-//                    startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
-//                else
-//                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//                finish();
-//            }
-//        }, SPLASH_TIMER);
-
-
+        //startActivity(new Intent(this, FoodItem_Activity.class));
+        spalshScreen();
+    }
+    void spalshScreen()
+    {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (user != null)
+                    startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
+                else
+                    //  startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
+                finish();
+            }
+        }, SPLASH_TIMER);
     }
 }

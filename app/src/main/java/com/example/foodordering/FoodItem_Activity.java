@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.example.foodordering.Recyler.Domain_FoodList;
 import com.example.foodordering.Recyler.Recycler_FoodItemActivity;
@@ -26,6 +27,11 @@ public class FoodItem_Activity extends AppCompatActivity {
         list = new ArrayList<>();
         list.add(0, new Domain_FoodList("Burger", R.drawable.burger, 60));
         list.add(1, new Domain_FoodList("Pizza", R.drawable.pizza, 350));
+        list.add(2, new Domain_FoodList("Bread", R.drawable.bread, 50));
+        list.add(3, new Domain_FoodList("Food", R.drawable.food_4, 150));
+        list.add(4, new Domain_FoodList("Food", R.drawable.food_5, 100));
+        list.add(5, new Domain_FoodList("Water", R.drawable.water, 20));
+        list.add(6, new Domain_FoodList("Juice", R.drawable.juice, 15));
 
         adapter = new Recycler_FoodItemActivity(FoodItem_Activity.this, list);
         RecyclerView r = findViewById(R.id.recylerView_FoodItemActivity);
@@ -34,9 +40,9 @@ public class FoodItem_Activity extends AppCompatActivity {
 //        linearLayoutManager.setStackFromEnd(true);
         r.setLayoutManager(linearLayoutManager);
         r.setAdapter(adapter);
-        AppCompatButton button=findViewById(R.id.cartB);
+        ImageView button = findViewById(R.id.cartB);
         button.setOnClickListener(view -> {
-            startActivity(new Intent(this,Cart_Activity.class));
+            startActivity(new Intent(this, Cart_Activity.class));
         });
     }
 }

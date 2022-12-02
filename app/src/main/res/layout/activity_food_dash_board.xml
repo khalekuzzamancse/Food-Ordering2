@@ -1,57 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><!--<?xml version="1.0" encoding="utf-8"?>-->
-
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F9">
+    android:background="#F6F6F9"
+    android:orientation="vertical">
 
     <include
         android:id="@+id/include"
         layout="@layout/layout_toolbar_for_non_home_activity" />
 
-
-    <ImageView
-        android:id="@+id/food_menu"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#03A9F4"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_food_menu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/food_cart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:layout_margin="8dp"
         android:contentDescription="@string/app_name"
         android:padding="5dp"
-        android:src="@drawable/ic_food_cart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        android:src="@drawable/ic_food_cart" />
+
 
     <EditText
-        android:inputType="textPersonName"
         android:id="@+id/food_search"
-        android:layout_width="314dp"
+        android:layout_width="300dp"
         android:layout_height="60dp"
+        android:layout_margin="8dp"
         android:background="@drawable/rectangle_background"
         android:backgroundTint="#C6B8EFBB"
         android:drawablePadding="16dp"
         android:gravity="center_vertical"
+        android:inputType="textPersonName"
         android:maxLines="1"
         android:padding="10dp"
         android:textColor="@android:color/black"
         android:textSize="17sp"
-        app:drawableStartCompat="@drawable/ic_food_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/food_cart" />
+        app:drawableStartCompat="@drawable/ic_food_search" />
 
 
     <HorizontalScrollView
@@ -60,7 +45,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/food_search"
         tools:layout_editor_absoluteX="103dp">
 
         <LinearLayout
@@ -124,18 +108,14 @@
                 android:text="Food"
                 android:textAllCaps="false" />
 
-
         </LinearLayout>
     </HorizontalScrollView>
 
-    <FrameLayout
+    <ViewFlipper
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:layout_margin="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/atb2">
-        >
+        app:layout_constraintTop_toBottomOf="@+id/atb2" />
 
-    </FrameLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
