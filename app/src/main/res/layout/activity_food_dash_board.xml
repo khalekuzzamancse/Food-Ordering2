@@ -73,37 +73,6 @@
                 android:text="Drink"
                 android:textAllCaps="false" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/rectangle_background"
-                android:backgroundTint="#05E19B"
-                android:text="Fast Food"
-                android:textAllCaps="false" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/food4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/rectangle_background"
-                android:backgroundTint="#05E19B"
-                android:text="Food"
-                android:textAllCaps="false" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/food5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/rectangle_background"
-                android:backgroundTint="#05E19B"
-                android:text="Food"
-                android:textAllCaps="false" />
 
         </LinearLayout>
     </HorizontalScrollView>

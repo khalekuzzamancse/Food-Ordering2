@@ -59,7 +59,9 @@ public class FoodDashBoard_Activity extends AppCompatActivity {
 //            FragmentTransaction ft = fm.beginTransaction();
 //            ft.replace(R.id.container, new DrinkFoodFragment());
 //            ft.commit();
+            startActivity(new Intent(this, DrinkFood_Activity.class));
         });
+
         ImageView view = findViewById(R.id.food_cart);
         view.setOnClickListener(view1 -> {
             startActivity(new Intent(this, Cart_Activity.class));
