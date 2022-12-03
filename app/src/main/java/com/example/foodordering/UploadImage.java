@@ -36,6 +36,8 @@ public class UploadImage extends AppCompatActivity {
     Uri imageUri;
     ProgressBar progressBar;
     EditText name, price, quantity, type;
+    String docId = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +79,8 @@ public class UploadImage extends AppCompatActivity {
 
         upload.setOnClickListener(view -> {
             progressBar.setVisibility(View.VISIBLE);
-            String fileName = String.valueOf(System.currentTimeMillis());
-
-            custom.uploadImage("FoodImages", fileName, imageUri, callback);
+            docId = "khalekuzzaman91@gmail.com" + name.getText();
+            custom.uploadImage("FoodImages", docId, imageUri, callback);
 
         });
     }
@@ -98,13 +99,17 @@ public class UploadImage extends AppCompatActivity {
         data.put("Type", type.getText().toString());
         data.put("Available Quantity", quantity.getText().toString());
         data.put("URL", uri.toString());
+        ///
+        data.put("OwnerID","khalekuzzaman@gmail.com");
+        //shopname
+        data.put("Shop Name","Azad Store");
+
         FirebaseAuth auth = FirebaseAuth.getInstance();
         //  data.put("Owner", );
         FirebaseCustom db = new DatabaseFetch();
         //  String docId = auth.getCurrentUser().getEmail();
-        String docId = "khalekuzzaman91@gmail.com" + String.valueOf(System.currentTimeMillis());
         db.addDocument("FoodItem", docId, data);
-        clearView();
+      //  clearView();
     }
 
     private void initializeView() {

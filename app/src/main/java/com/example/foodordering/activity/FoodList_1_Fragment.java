@@ -66,7 +66,7 @@ public class FoodList_1_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_food_list_1_, container, false);
+        View view = inflater.inflate(R.layout.item_list_fragment, container, false);
         AppCompatButton f1, f2, f3, f4, f5;
         EditText e1, e2, e3, e4, e5;
         f1 = view.findViewById(R.id.btn_foodItem_1);
