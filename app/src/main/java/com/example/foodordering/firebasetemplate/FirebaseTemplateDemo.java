@@ -39,7 +39,7 @@ public class FirebaseTemplateDemo {
         //collectionName=DistrictList ,documentId/Name=Dhaka
         //documentName/Id=jahidrana190153cse@gmail.com ,fieldName=Name
         firebaseCustom.getDocumentField("UserInfo", "jahidrana190153cse@gmail.com", "Name", fieldValue ->
-                Log.i("Fetched-Document ,jahidrana190153cse@gmail.com ,FieldValue ->", String.valueOf(fieldValue)));
+                Log.i("Fetched-Document ,jahid", String.valueOf(fieldValue)));
 
     }
 
