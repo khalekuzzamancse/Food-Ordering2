@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 
 import com.example.foodordering.R;
 import com.google.android.gms.tasks.Task;
@@ -19,12 +21,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
+    Spinner spinner;
+    EditText shopName, shopLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_page_scrolable);
 
+        spinner = findViewById(R.id.snipper);
+        shopName = findViewById(R.id.shopName);
+        shopLocation = findViewById(R.id.shopLocation);
 
         AppCompatButton submit = findViewById(R.id.Activity_Register_Button_Submit);
         submit.setOnClickListener(view -> {
@@ -32,6 +39,28 @@ public class RegisterActivity extends AppCompatActivity {
             p.setVisibility(View.VISIBLE);
             SetUserInfo();
             Log.i("Submit", "clicked");
+        });
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String s = new String();
+                s = (String) parent.getItemAtPosition(position);
+                if (!s.equals("Shop Kepper")) {
+                    shopLocation.setVisibility(View.GONE);
+                    shopName.setVisibility(View.GONE);
+                }
+                else {
+                    shopLocation.setVisibility(View.VISIBLE);
+                    shopName.setVisibility(View.VISIBLE);
+                }
+                Log.i("Spinner", s);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
 
     }
@@ -137,4 +166,6 @@ public class RegisterActivity extends AppCompatActivity {
                 });
 
     }
+
+
 }
