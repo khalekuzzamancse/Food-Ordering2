@@ -96,12 +96,16 @@ public class DatabaseFetch implements FirebaseCustom {
                 reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        callbackUploadImage.downloadLink(uri);
+
+                        if (callbackUploadImage != null) {
+                            callbackUploadImage.downloadLink(uri);
+                        }
+
                     }
                 });
 
             } else {
-                callbackUploadImage.downloadLink(null);
+                //  callbackUploadImage.downloadLink(null);
             }
         }
     };

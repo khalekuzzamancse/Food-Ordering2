@@ -18,6 +18,8 @@ public interface FirebaseCustom {
     public void deleteDocument(String collectionName, String documentName);
 
     public void updateArrayItem(String collectionName, String documentName, String arrayName, Object data);
+
     public void deleteArrayItem(String collectionName, String documentName, String arrayName, Object data);
-    void uploadImage(String path, String fileName, Uri imageUri,CallbackUploadImage callbackUploadImage);
+
+    void uploadImage(String path, String fileName, Uri imageUri, CallbackUploadImage callbackUploadImage);
 }
