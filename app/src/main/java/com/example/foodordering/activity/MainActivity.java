@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.WindowManager;
 
 import com.example.foodordering.CartActivityData;
+import com.example.foodordering.ProfileActivity;
 import com.example.foodordering.R;
 import com.example.foodordering.UploadImage;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         // setContentView(R.layout.activity_food_dash_board);
         //  setContentView(R.layout.fragment_food_list_1_);
         // startActivity(new Intent(this,FoodItem_Activity.class));
-        startActivity(new Intent(this, FoodItem_Activity.class));
-       // spalshScreen();
+      //  startActivity(new Intent(this, ProfileActivity.class));
+        spalshScreen();
     }
     void spalshScreen()
     {
