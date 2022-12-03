@@ -1,18 +1,17 @@
-package com.example.foodordering;
+package com.example.foodordering.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-import com.google.android.material.tabs.TabLayout;
+import com.example.foodordering.CartActivityData;
+import com.example.foodordering.R;
+import com.example.foodordering.UploadImage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import org.checkerframework.checker.units.qual.C;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -31,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         // setContentView(R.layout.activity_food_dash_board);
         //  setContentView(R.layout.fragment_food_list_1_);
         // startActivity(new Intent(this,FoodItem_Activity.class));
-        //startActivity(new Intent(this, FoodItem_Activity.class));
-        spalshScreen();
+        startActivity(new Intent(this, UploadImage.class));
+       // spalshScreen();
     }
     void spalshScreen()
     {
@@ -42,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 if (user != null)
                     startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
                 else
-                    //  startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                    startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                   // startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
                 finish();
             }
         }, SPLASH_TIMER);

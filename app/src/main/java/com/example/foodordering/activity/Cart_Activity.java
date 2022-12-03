@@ -1,4 +1,4 @@
-package com.example.foodordering;
+package com.example.foodordering.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -7,16 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.foodordering.AdapteRecyler_OrderActivity;
+import com.example.foodordering.R;
 import com.example.foodordering.Recyler.Domain_FoodList;
 import com.example.foodordering.Recyler.Recycler_FoodItemActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;

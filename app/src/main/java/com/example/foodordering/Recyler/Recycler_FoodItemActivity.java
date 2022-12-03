@@ -1,7 +1,6 @@
 package com.example.foodordering.Recyler;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.foodordering.CartActivityData;
-import com.example.foodordering.Cart_Activity;
+import com.example.foodordering.activity.Cart_Activity;
 import com.example.foodordering.R;
 import com.google.android.material.snackbar.Snackbar;
 

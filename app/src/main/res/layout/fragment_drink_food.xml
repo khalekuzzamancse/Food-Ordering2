@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".FoodList_1_Fragment">
+        tools:context=".activity.FoodList_1_Fragment">
 
         <LinearLayout
             android:padding="8dp"

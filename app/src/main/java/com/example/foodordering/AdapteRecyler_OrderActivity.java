@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodordering.activity.DataType_OrderList;
+import com.example.foodordering.activity.VH_OrderActivity;
+
 import java.util.List;
 
 public class AdapteRecyler_OrderActivity extends RecyclerView.Adapter<VH_OrderActivity> {

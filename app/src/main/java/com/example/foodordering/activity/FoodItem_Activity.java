@@ -1,4 +1,4 @@
-package com.example.foodordering;
+package com.example.foodordering.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.example.foodordering.R;
 import com.example.foodordering.Recyler.Domain_FoodList;
 import com.example.foodordering.Recyler.Recycler_FoodItemActivity;
 import com.google.android.material.snackbar.Snackbar;
@@ -17,23 +18,25 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DrinkFood_Activity extends AppCompatActivity {
+public class FoodItem_Activity extends AppCompatActivity {
     Recycler_FoodItemActivity adapter;
     List<Domain_FoodList> list;
     SearchView search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drink_food);
+        setContentView(R.layout.activity_food_item);
         //initializing list
         list = new ArrayList<>();
-        list.add( new Domain_FoodList("Water", R.drawable.water, 20));
-        list.add( new Domain_FoodList("Juice", R.drawable.juice, 15));
-        list.add( new Domain_FoodList("Power", R.drawable.power, 35));
-        list.add( new Domain_FoodList("Cola Cola", R.drawable.coca_cola, 25));
-        list.add( new Domain_FoodList("Cola Cola", R.drawable.sprite, 15));
+        list.add(0, new Domain_FoodList("Burger", R.drawable.burger, 60));
+        list.add(1, new Domain_FoodList("Pizza", R.drawable.pizza, 350));
+        list.add(2, new Domain_FoodList("Bread", R.drawable.bread, 50));
+        list.add(3, new Domain_FoodList("Food", R.drawable.food_4, 150));
+        list.add(4, new Domain_FoodList("Food", R.drawable.food_5, 100));
+    
 
-        adapter = new Recycler_FoodItemActivity(DrinkFood_Activity.this, list);
+        adapter = new Recycler_FoodItemActivity(FoodItem_Activity.this, list);
         RecyclerView r = findViewById(R.id.recylerView_FoodItemActivity);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 //        linearLayoutManager.setReverseLayout(true);
@@ -78,6 +81,5 @@ public class DrinkFood_Activity extends AppCompatActivity {
         else {
             adapter.setFilterList(L);
         }
-
     }
 }
