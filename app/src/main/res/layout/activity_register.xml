@@ -1,153 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".RegisterActivity">-->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.RegisterActivity">
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineLeft"
-        style="@style/GuidLineVertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        tools:context=".activity.RegisterActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineRight"
-        style="@style/GuidLineVertical"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:hint="Name"
+            app:startIconDrawable="@drawable/icon_person">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Activity_Register_TextInputLayout_Name"
-        style="@style/TextInputLayout"
-        android:layout_marginTop="8dp"
-        android:hint="Name"
-        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-        app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/icon_person">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Activity_Register_TextInputLayout_EditText_Name"
+                style="@style/TextInputEditText" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Activity_Register_TextInputLayout_EditText_Name"
-            style="@style/TextInputEditText" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:hint="Email"
+            app:startIconDrawable="@drawable/icon_email">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Activity_Register_TextInputLayout_Email"
-        style="@style/TextInputLayout"
-        android:layout_marginTop="50dp"
-        android:hint="Email"
-        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-        app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/Activity_Register_TextInputLayout_Name"
-        app:startIconDrawable="@drawable/icon_email">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Activity_Register_TextInputLayout_EditText_Email"
+                style="@style/TextInputEditText"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Activity_Register_TextInputLayout_EditText_Email"
-            android:inputType="textEmailAddress"
-            style="@style/TextInputEditText" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:layout_marginTop="50dp"
+            android:hint="Phone Number"
+            app:startIconDrawable="@drawable/icon_phone_number">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Activity_Register_TextInputLayout_PhoneNumber"
-        style="@style/TextInputLayout"
-        android:layout_marginTop="50dp"
-        android:hint="Phone Number"
-        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-        app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/Activity_Register_TextInputLayout_Email"
-        app:startIconDrawable="@drawable/icon_phone_number">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Activity_Register_TextInputLayout_EditText_PhoneNumber"
+                style="@style/TextInputEditText"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Activity_Register_TextInputLayout_EditText_PhoneNumber"
-            android:inputType="number"
-            style="@style/TextInputEditText" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:layout_marginTop="50dp"
+            android:hint="User Name"
+            app:startIconDrawable="@drawable/icon_person">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Activity_Register_TextInputLayout_UserName"
-        style="@style/TextInputLayout"
-        android:layout_marginTop="50dp"
-        android:hint="User Name"
-        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-        app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/Activity_Register_TextInputLayout_PhoneNumber"
-        app:startIconDrawable="@drawable/icon_person">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Activity_Register_TextInputLayout_EditText_UserName"
+                style="@style/TextInputEditText" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Activity_Register_TextInputLayout_EditText_UserName"
-            style="@style/TextInputEditText" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayout"
+            android:layout_marginTop="50dp"
+            android:hint="Password"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/icon_password">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Activity_Register_TextInputLayout_Password"
-        style="@style/TextInputLayout"
-        android:layout_marginTop="50dp"
-        android:hint="Password"
-        app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-        app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/Activity_Register_TextInputLayout_UserName"
-        app:startIconDrawable="@drawable/icon_password">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Activity_Register_TextInputLayout_EditText_Password"
+                style="@style/TextInputEditText" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Activity_Register_TextInputLayout_EditText_Password"
-            style="@style/TextInputEditText" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Activity_ContactSendMessage_TextInputLayout_ConfirmPassword"
+            style="@style/TextInputLayout"
+            android:layout_marginTop="50dp"
+            android:hint="Confirm Password"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/icon_password">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Activity_ContactSendMessage_TextInputLayout_ConfirmPassword"
-        style="@style/TextInputLayout"
-        android:layout_marginTop="50dp"
-        android:hint="Confirm Password"
-        app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-        app:layout_constraintStart_toEndOf="@id/guidelineLeft"
-        app:layout_constraintTop_toBottomOf="@id/Activity_Register_TextInputLayout_Password"
-        app:startIconDrawable="@drawable/icon_password">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Activity_Register_TextInputLayout_EditText_ConfirmPassword"
+                style="@style/TextInputEditText" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Activity_Register_TextInputLayout_EditText_ConfirmPassword"
-            style="@style/TextInputEditText" />
-    </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Activity_Register_Button_Submit"
-        style="@style/Button"
-        android:layout_marginTop="50dp"
-        android:text="Submit"
-        app:layout_constraintEnd_toStartOf="@+id/Activity_Register_Button_Cancel"
-        app:layout_constraintStart_toStartOf="@+id/Activity_ContactSendMessage_TextInputLayout_ConfirmPassword"
-        app:layout_constraintTop_toBottomOf="@+id/Activity_ContactSendMessage_TextInputLayout_ConfirmPassword" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Activity_Register_Button_Submit"
+                style="@style/Button"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:text="Submit" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Activity_Register_Button_Cancel"
-        style="@style/Button"
-        android:backgroundTint="#F80707"
-        android:text="Cancel"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/Activity_ContactSendMessage_TextInputLayout_ConfirmPassword"
-        app:layout_constraintStart_toEndOf="@+id/Activity_Register_Button_Submit"
-        app:layout_constraintTop_toTopOf="@+id/Activity_Register_Button_Submit" />
-
-    <ProgressBar
-        android:id="@+id/ActivityRegister_ProgessBar"
-        style="@style/ProgessBar"
-        android:layout_marginStart="184dp"
-        android:layout_marginBottom="172dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/Activity_ContactSendMessage_TextInputLayout_ConfirmPassword"
-        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/guidelineLeft" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Activity_Register_Button_Cancel"
+                style="@style/Button"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:backgroundTint="#F80707"
+                android:text="Cancel"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ProgressBar
+            android:id="@+id/ActivityRegister_ProgessBar"
+            style="@style/ProgessBar"
+            android:layout_marginStart="184dp"
+            android:layout_marginBottom="172dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/Activity_ContactSendMessage_TextInputLayout_ConfirmPassword"
+            app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/guidelineLeft" />
+
+    </LinearLayout>
+</ScrollView>
