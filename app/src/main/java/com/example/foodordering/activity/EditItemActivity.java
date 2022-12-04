@@ -159,8 +159,7 @@ public class EditItemActivity extends AppCompatActivity {
         //  String docId = auth.getCurrentUser().getEmail();
         db.addDocument("FoodItem", docId, data);
         //refresh the activity
-//        finish();
-//        startActivity(getIntent());
+
         //after refreshing setting the updated data
         setUpdate();
 
@@ -212,5 +211,22 @@ public class EditItemActivity extends AppCompatActivity {
         subTypeET.setText(subType);
         quantityET.setText(quantity);
         descriptionET.setText(description);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        //replacing the back button functionality in this activity,because
+        // 1:going the previous activity by back button will not reload the previous activity
+        //2:we need the updated data on the previous activity
+        //3:so we replace the back button
+        //Caution: this is bad idea to to back agian using Intent becuase
+        //1: this will create a new Intent and push it to the back stack
+        //2:as a result app performance will decrease
+        //3:since at this moment I have no idea how to update the previous activity recycler
+        //4: that is why I use this technique
+        //5: when I got a better solution (insha-allah) to update the previous page recycler then
+        //6: I will not use this technique any more
+        startActivity(new Intent(this,ShopKeeperDashboard_Activity.class));
     }
 }

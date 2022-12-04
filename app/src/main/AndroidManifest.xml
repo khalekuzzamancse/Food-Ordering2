@@ -14,6 +14,7 @@
         <activity
             android:name=".activity.EditItemActivity"
             android:theme="@style/Theme.FoodOrdering"
+            android:parentActivityName=".activity.ShopKeeperDashboard_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

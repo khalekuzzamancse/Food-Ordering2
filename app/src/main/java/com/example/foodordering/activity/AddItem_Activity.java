@@ -72,12 +72,16 @@ public class AddItem_Activity extends AppCompatActivity {
                     //2.1-> this will causes problem such as if we clear the edittext filed
                     //2.2->then because of point 2,our currently pushed data will be replaced with
                     //2.3->empty data
+                    if (!check())
+                    {
+                        setData(link);
+                        Log.i("UploadedImage", String.valueOf(link));
+                        progressBar.setVisibility(View.INVISIBLE);
+                        img.setImageResource(R.drawable.vector);
+                        showSnakbar("Uploaded Successfully");
+                        clearEditText();
+                    }
 
-                    setData(link);
-                    Log.i("UploadedImage", String.valueOf(link));
-                    progressBar.setVisibility(View.INVISIBLE);
-                    img.setImageResource(R.drawable.vector);
-                    showSnakbar("Uploaded Successfully");
 
 
                 } else
@@ -152,11 +156,22 @@ public class AddItem_Activity extends AppCompatActivity {
 
     }
     private boolean check() {
+        //subType can be empty,
+        //the name and the price should not be empty
         String name = nameET.getText().toString();
         String price = priceET.getText().toString();
         if (name.equals("") || price.equals(""))
             return true;
         else
             return false;
+    }
+    private void clearEditText()
+    {
+        nameET.setText("");
+        priceET.setText("");
+        quantityET.setText("");
+        subTypeET.setText("");
+        descriptionET.setText("");
+
     }
 }
