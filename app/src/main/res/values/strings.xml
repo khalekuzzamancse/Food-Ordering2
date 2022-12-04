@@ -11,8 +11,8 @@
         <item>5</item>
     </string-array>
     <string-array name="userType">
-        <item>Register AS</item>
+        <item>Register As</item>
         <item>Customer</item>
-        <item>Shop Kepper</item>
+        <item>Shop Keeper</item>
     </string-array>
 </resources>

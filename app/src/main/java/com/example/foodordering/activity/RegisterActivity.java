@@ -26,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     Spinner spinner;
     EditText shopName, shopLocation;
     LinearLayout shopContainer;
+    String userType="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         shopLocation = findViewById(R.id.shopLocation);
         shopContainer = findViewById(R.id.shopContainer);
 
+        //when submit button will be clicked
         AppCompatButton submit = findViewById(R.id.Activity_Register_Button_Submit);
         submit.setOnClickListener(view -> {
             ProgressBar p = findViewById(R.id.ActivityRegister_ProgessBar);
@@ -45,21 +47,17 @@ public class RegisterActivity extends AppCompatActivity {
             Log.i("Submit", "clicked");
         });
 
+        //when a spinner item will be selected,by default the first item is selected
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String s = new String();
-                s = (String) parent.getItemAtPosition(position);
-                if (!s.equals("Shop Kepper")) {
-//                    shopLocation.setVisibility(View.GONE);
-//                    shopName.setVisibility(View.GONE);
+                userType = (String) parent.getItemAtPosition(position);
+                if (!userType.equals("Shop Keeper")) {
                     shopContainer.setVisibility(View.GONE);
                 } else {
-//                    shopLocation.setVisibility(View.VISIBLE);
-//                    shopName.setVisibility(View.VISIBLE);
                     shopContainer.setVisibility(View.VISIBLE);
                 }
-                Log.i("Spinner", s);
+                Log.i("Spinner", userType);
             }
 
             @Override
@@ -89,20 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         EditText PhoneNumber = findViewById(R.id.Activity_Register_TextInputLayout_EditText_PhoneNumber);
         String phoneNumber = PhoneNumber.getText().toString().trim();
-        if (phoneNumber.isEmpty()) {
-            PhoneNumber.setError("Phone Number can not be empty!");
-            return;
-        } else if (phoneNumber.length() != 11) {
-            PhoneNumber.setError("Total Digit Must be 11");
-            return;
-        }
 
-        EditText UserName = findViewById(R.id.Activity_Register_TextInputLayout_EditText_UserName);
-        String userName = UserName.getText().toString().trim();
-        if (userName.isEmpty()) {
-            UserName.setError("Username can not be empty!");
-            return;
-        }
         EditText PassWord = findViewById(R.id.Activity_Register_TextInputLayout_EditText_Password);
         String password = PassWord.getText().toString().trim();
         if (password.isEmpty()) {
@@ -123,20 +108,22 @@ public class RegisterActivity extends AppCompatActivity {
             ConfirmPassWord.setError("Password does not match");
             return;
         }
-        Register(email, password);
+
+
+       // Register(email, password);
 
         HashMap<String, Object> Data = new HashMap<>();
         Data.put("Name", name);
         Data.put("Email", email);
-        Data.put("UserName", userName);
         Data.put("Password", password);
         Data.put("PhoneNumber", phoneNumber);
-        Data.put("isDonor", "false");
-
-        setDataToDatabase(Data);
-
-        Log.i("Okayyy", name + "\n" + email + "\n" + phoneNumber + "\n" + userName + "\n" + password + "\n" + confirmPassword);
-
+        String shop_name = shopName.getText().toString().trim();
+        String shopLoc = shopLocation.getText().toString().trim();
+        Data.put("Shop Name",shop_name);
+        Data.put("Shop Location",shopLoc);
+        Data.put("UserType",userType);
+       // setDataToDatabase(Data);
+        Log.i("DataRead", String.valueOf(Data));
 
     }
 
