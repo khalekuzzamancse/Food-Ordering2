@@ -26,6 +26,7 @@ import java.util.List;
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
     Context context;
     List<Domain_FoodList> list;
+    public boolean isShopkeeperActivity = false;
 
     public FoodAdapter(Context context, List<Domain_FoodList> list) {
         this.context = context;
@@ -102,17 +103,26 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
             holder.quantity.setVisibility(View.GONE);
 
         }
+        if (isShopkeeperActivity) {
+            holder.spinner.setVisibility(View.GONE);
+            holder.shopName.setVisibility(View.GONE);
+            holder.tot_price.setVisibility(View.GONE);
+            holder.add.setVisibility(View.GONE);
+        }
     }
+
     void showSnapbar(Viewholder holder, String msg) {
         Snackbar snackbar = Snackbar
                 .make(holder.ItemPrice, msg, Snackbar.LENGTH_LONG);
         snackbar.setBackgroundTint(ContextCompat.getColor(context, R.color.purple_500));
         snackbar.show();
     }
+
     @Override
     public int getItemCount() {
         return list.size();
     }
+
     public void setFilterList(List<Domain_FoodList> L) {
         this.list = L;
         notifyDataSetChanged();
