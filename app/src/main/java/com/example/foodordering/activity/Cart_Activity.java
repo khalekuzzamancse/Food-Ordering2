@@ -12,17 +12,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.foodordering.AdapteRecyler_OrderActivity;
 import com.example.foodordering.R;
 import com.example.foodordering.Recyler.Domain_FoodList;
 import com.example.foodordering.Recyler.FoodAdapter;
-import com.example.foodordering.Recyler.Recycler_FoodItemActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cart_Activity extends AppCompatActivity {
-    AdapteRecyler_OrderActivity adapter2;
+    //AdapteRecyler_OrderActivity adapter2;
     //List<DataType_OrderList> orderList;
 
     AppCompatButton button;

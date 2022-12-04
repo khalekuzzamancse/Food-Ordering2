@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     Spinner spinner;
     EditText shopName, shopLocation;
     LinearLayout shopContainer;
-    String userType="";
+    String userType = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
 
-       // Register(email, password);
+        Register(email, password);
 
         HashMap<String, Object> Data = new HashMap<>();
         Data.put("Name", name);
@@ -119,10 +119,10 @@ public class RegisterActivity extends AppCompatActivity {
         Data.put("PhoneNumber", phoneNumber);
         String shop_name = shopName.getText().toString().trim();
         String shopLoc = shopLocation.getText().toString().trim();
-        Data.put("Shop Name",shop_name);
-        Data.put("Shop Location",shopLoc);
-        Data.put("UserType",userType);
-       // setDataToDatabase(Data);
+        Data.put("Shop Name", shop_name);
+        Data.put("Shop Location", shopLoc);
+        Data.put("UserType", userType);
+        setDataToDatabase(Data);
         Log.i("DataRead", String.valueOf(Data));
 
     }

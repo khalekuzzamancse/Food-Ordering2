@@ -11,6 +11,7 @@ import com.example.foodordering.CartActivityData;
 import com.example.foodordering.ProfileActivity;
 import com.example.foodordering.R;
 import com.example.foodordering.UploadImage;
+import com.example.foodordering.UserData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -26,16 +27,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        CartActivityData.createData();
+
+
+        //  CartActivityData.createData();
         //startActivity(new Intent(this,FoodDashBoard_Activity.class));
         // setContentView(R.layout.activity_food_dash_board);
         //  setContentView(R.layout.fragment_food_list_1_);
         // startActivity(new Intent(this,FoodItem_Activity.class));
-      //  startActivity(new Intent(this, ProfileActivity.class));
+        //  startActivity(new Intent(this, ProfileActivity.class));
+        UserData userData = new UserData();
+        userData.readData();
+
         spalshScreen();
     }
-    void spalshScreen()
-    {
+
+    void spalshScreen() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -43,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
                 else
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                   // startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
+                // startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
                 finish();
             }
         }, SPLASH_TIMER);

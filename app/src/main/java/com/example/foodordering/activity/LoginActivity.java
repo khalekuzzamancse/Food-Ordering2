@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.example.foodordering.R;
+import com.example.foodordering.UserData;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,7 +55,8 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
 
                         // Log.i("Curr Logined","Successfully");
-
+                        UserData userData = new UserData();
+                        userData.readData();
                         Intent i = new Intent(this, FoodDashBoard_Activity.class);
                         startActivity(i);
 
