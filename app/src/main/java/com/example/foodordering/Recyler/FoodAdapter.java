@@ -1,6 +1,7 @@
 package com.example.foodordering.Recyler;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.foodordering.EditItemActivity;
 import com.example.foodordering.R;
 import com.example.foodordering.activity.Cart_Activity;
 import com.google.android.material.snackbar.Snackbar;
@@ -51,7 +54,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
         holder.shopName.setText(list.get(pos).shopName);
         Glide.with(holder.img.getContext()).load(Uri.parse(list.get(pos).imgUrl)).into(holder.img);
 
-
         holder.add.setOnClickListener(view -> {
             TextView textView = (TextView) holder.spinner.getSelectedView();
             String s = textView.getText().toString();
@@ -63,6 +65,16 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
                 d.quantity = Integer.parseInt(s);
                 Cart_Activity.list.add(d);
                 showSnapbar(holder, "Added To Cart");
+            }
+
+        });
+        holder.container.setOnClickListener(view -> {
+            if (isShopkeeperActivity) {
+                Intent intent = new Intent(context, EditItemActivity.class);
+                intent.putExtra("name", list.get(pos).itmName);
+                intent.putExtra("price", String.valueOf(list.get(pos).price));
+                intent.putExtra("link", list.get(pos).imgUrl);
+                context.startActivity(intent);
             }
 
         });
@@ -85,6 +97,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
 
             }
         });
+
+        //
+
         ///
         ////
         if (list.get(pos).isCartActivity == true) {
@@ -136,6 +151,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
         public ImageButton add;
         public ImageView img;
         public Spinner spinner;
+        LinearLayout container;
 
         public Viewholder(@NonNull View view) {
             super(view);
@@ -148,6 +164,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
             quantity = view.findViewById(R.id.quantity);
             tot_price = view.findViewById(R.id.tot_price);
             shopName = view.findViewById(R.id.shopName);
+            container = view.findViewById(R.id.container);
 
         }
 

@@ -6,56 +6,59 @@
     android:layout_height="match_parent"
     android:layout_margin="16dp"
     android:orientation="vertical"
-    tools:context=".UploadImage">
+    tools:context=".AddItem_Activity">
 
     <EditText
-        android:inputType="textPersonName"
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Item Name" />
+        android:hint="Item Name"
+        android:inputType="textPersonName" />
 
     <EditText
-        android:inputType="number"
         android:id="@+id/price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Item Price" />
-    <EditText
-        android:id="@+id/type"
+        android:hint="Item Price"
+        android:inputType="number" />
+
+    <Spinner
+        android:id="@+id/snipper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Item Type" />
+        android:layout_margin="4dp"
+        android:background="@drawable/rectangle_background"
+        android:entries="@array/itemType" />
 
     <EditText
         android:id="@+id/quantity"
-        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Available Quantity" />
+        android:hint="Available Quantity"
+        android:inputType="number" />
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
+        android:src="@drawable/vector"
         tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="220dp"
-        android:src="@drawable/vector" />
+        tools:layout_editor_absoluteY="220dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Upload" />
+        android:text="Update" />
+
     <ProgressBar
         android:id="@+id/progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
 
 </LinearLayout>

@@ -15,4 +15,10 @@
         <item>Customer</item>
         <item>Shop Keeper</item>
     </string-array>
+    <string-array name="itemType">
+        <item>select item type</item>
+        <item>Normal</item>
+        <item>Fast Food</item>
+        <item>Drinks</item>
+    </string-array>
 </resources>

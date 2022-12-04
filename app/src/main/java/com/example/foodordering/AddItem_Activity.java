@@ -19,18 +19,12 @@ import android.widget.ProgressBar;
 import com.example.foodordering.firebasetemplate.CallbackUploadImage;
 import com.example.foodordering.firebasetemplate.DatabaseFetch;
 import com.example.foodordering.firebasetemplate.FirebaseCustom;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 
-public class UploadImage extends AppCompatActivity {
+public class AddItem_Activity extends AppCompatActivity {
     AppCompatButton upload;
     ImageView img;
     Uri imageUri;
@@ -42,7 +36,7 @@ public class UploadImage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.upload_image_activity);
+        setContentView(R.layout.add_item_activity);
         initializeView();
 
         ActivityResultLauncher<String> resultLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
