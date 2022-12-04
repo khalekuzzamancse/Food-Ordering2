@@ -20,11 +20,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodordering.ExampleDialog;
 import com.example.foodordering.activity.EditItemActivity;
 import com.example.foodordering.R;
 import com.example.foodordering.activity.Cart_Activity;
@@ -46,7 +44,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).
-                inflate(R.layout.food_item_list_recyler_layout, parent, false);
+                inflate(R.layout.recycler_layout, parent, false);
         Viewholder vh = new Viewholder(view);
         return vh;
     }
@@ -54,7 +52,15 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
     @Override
     public void onBindViewHolder(@NonNull Viewholder holder, int pos) {
 
-        holder.ItemName.setText(list.get(pos).itmName);
+        // 1:if the item subtype id available
+        // 2:then we want to show the subtype with the name
+        String name=list.get(pos).itmName;
+        String subtype=list.get(pos).subType;
+        if(!subtype.equals(""))
+            name=name+" ("+subtype+" )";
+        //
+        holder.ItemName.setText(name);
+        //
         String price = String.valueOf(list.get(pos).price) + " Tk.";
         holder.ItemPrice.setText(price);
         holder.shopName.setText(list.get(pos).shopName);
