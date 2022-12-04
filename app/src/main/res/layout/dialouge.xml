@@ -27,30 +27,44 @@ android:background="@drawable/rectangle_background"
         android:padding="10dp"
         />
 
-    <EditText
-        android:id="@+id/dialoge_edttx_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Enter Your Name"
-        android:inputType="textPersonName"
-        android:maxLines="1" />
 
-    <EditText
-        android:id="@+id/dialoge_edttx_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Phone Number"
-        android:inputType="number"
-        android:maxLines="1" />
 
-    <EditText
-        android:id="@+id/dialoge_edttx_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:hint="District,Sub-district,Village/City,Location"
-        android:inputType="textPostalAddress" />
+<!--    <EditText-->
+<!--        -->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Enter Phone Number"-->
+<!--        android:inputType="number"-->
+<!--        android:maxLines="1" />-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="8dp"
+        style="@style/TextInputLayout"
+        android:hint="Phone No"
+        app:startIconDrawable="@drawable/icon_phone_number">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialoge_edttx_2"
+            android:inputType="number"
+            style="@style/TextInputEditText" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--    <EditText-->
+<!--        android:id="@+id/dialoge_edttx_3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="15sp"-->
+<!--        android:hint="District,Sub-district,Village/City,Location"-->
+<!--        android:inputType="textPostalAddress" />-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="8dp"
+        style="@style/TextInputLayout"
+        android:hint="Delivery Location"
+        app:startIconDrawable="@drawable/ic_location">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialoge_edttx_3"
+            android:inputType="textMultiLine"
+            style="@style/TextInputEditText" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
