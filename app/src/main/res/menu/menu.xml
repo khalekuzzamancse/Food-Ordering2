@@ -5,5 +5,7 @@
         android:title="Add Item"
 
         />
-
+    <item
+        android:id="@+id/signOut"
+        android:title="Sign Out" />
 </menu>

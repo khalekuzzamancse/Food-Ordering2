@@ -31,7 +31,7 @@ public class FoodDashBoard_Activity extends AppCompatActivity {
         CartActivityData.createData();
         ///
 
-        Toolbar toolbar = findViewById(R.id.NonHomeActivity_Toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Food Delivery App");
@@ -71,7 +71,7 @@ public class FoodDashBoard_Activity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-        new MenuInflater(this).inflate(R.menu.menu_item_for_non_home_activity_toolbar, menu);
+        new MenuInflater(this).inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -79,7 +79,7 @@ public class FoodDashBoard_Activity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.logout) {
+        if (id == R.id.signOut) {
             FirebaseAuth.getInstance().signOut();
             Log.i("MEnyHHH", "clicked");
             startActivity(new Intent(this, MainActivity.class));
