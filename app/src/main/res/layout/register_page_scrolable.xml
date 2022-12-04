@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <include layout="@layout/activity_register"></include>
+        <include layout="@layout/register_activity"></include>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

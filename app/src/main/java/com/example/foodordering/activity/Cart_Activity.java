@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.foodordering.AdapteRecyler_OrderActivity;
 import com.example.foodordering.R;
 import com.example.foodordering.Recyler.Domain_FoodList;
+import com.example.foodordering.Recyler.FoodAdapter;
 import com.example.foodordering.Recyler.Recycler_FoodItemActivity;
 
 import java.util.ArrayList;
@@ -22,10 +23,12 @@ import java.util.List;
 
 public class Cart_Activity extends AppCompatActivity {
     AdapteRecyler_OrderActivity adapter2;
-    List<DataType_OrderList> orderList;
+    //List<DataType_OrderList> orderList;
+
     AppCompatButton button;
     public static List<Domain_FoodList> list = new ArrayList<>();
-    Recycler_FoodItemActivity adapter;
+    // Recycler_FoodItemActivity adapter;
+    FoodAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,7 @@ public class Cart_Activity extends AppCompatActivity {
 //        list.add(0, new Domain_FoodList("Burger", R.drawable.burger, 60,true));
 //        list.add(1, new Domain_FoodList("Pizza", R.drawable.pizza, 350,true));
 
-        adapter = new Recycler_FoodItemActivity(Cart_Activity.this, list);
+        adapter = new FoodAdapter(Cart_Activity.this, list);
         RecyclerView r = findViewById(R.id.recycler);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         r.setLayoutManager(linearLayoutManager);

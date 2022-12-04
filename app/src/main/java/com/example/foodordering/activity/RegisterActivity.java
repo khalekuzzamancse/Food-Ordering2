@@ -9,11 +9,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.example.foodordering.R;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,6 +25,7 @@ import java.util.HashMap;
 public class RegisterActivity extends AppCompatActivity {
     Spinner spinner;
     EditText shopName, shopLocation;
+    LinearLayout shopContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         spinner = findViewById(R.id.snipper);
         shopName = findViewById(R.id.shopName);
         shopLocation = findViewById(R.id.shopLocation);
+        shopContainer = findViewById(R.id.shopContainer);
 
         AppCompatButton submit = findViewById(R.id.Activity_Register_Button_Submit);
         submit.setOnClickListener(view -> {
@@ -47,12 +51,13 @@ public class RegisterActivity extends AppCompatActivity {
                 String s = new String();
                 s = (String) parent.getItemAtPosition(position);
                 if (!s.equals("Shop Kepper")) {
-                    shopLocation.setVisibility(View.GONE);
-                    shopName.setVisibility(View.GONE);
-                }
-                else {
-                    shopLocation.setVisibility(View.VISIBLE);
-                    shopName.setVisibility(View.VISIBLE);
+//                    shopLocation.setVisibility(View.GONE);
+//                    shopName.setVisibility(View.GONE);
+                    shopContainer.setVisibility(View.GONE);
+                } else {
+//                    shopLocation.setVisibility(View.VISIBLE);
+//                    shopName.setVisibility(View.VISIBLE);
+                    shopContainer.setVisibility(View.VISIBLE);
                 }
                 Log.i("Spinner", s);
             }
