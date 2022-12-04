@@ -140,8 +140,6 @@ public class AddItem_Activity extends AppCompatActivity {
         //  String docId = auth.getCurrentUser().getEmail();
         db.addDocument("FoodItem", docId, data);
         //refresh the activity
-        finish();
-        startActivity(getIntent());
     }
 
     private void initializeView() {
@@ -173,5 +171,17 @@ public class AddItem_Activity extends AppCompatActivity {
         subTypeET.setText("");
         descriptionET.setText("");
 
+    }
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        //replacing the back button functionality in this activity,because
+        // 1:going the previous activity by back button will not reload the previous activity
+        //2:we need the updated data on the previous activity
+        //3:so we replace the back button
+        ///<---- caution---->
+        //1: if we have a idea to refresh the previous activity recycler
+        //2:then you can skip this technique
+        onNavigateUp();
     }
 }
