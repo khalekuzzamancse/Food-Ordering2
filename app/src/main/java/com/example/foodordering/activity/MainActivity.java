@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import com.example.foodordering.CartActivityData;
 import com.example.foodordering.ProfileActivity;
 import com.example.foodordering.R;
+import com.example.foodordering.ShopKeeperDashboard_Activity;
 import com.example.foodordering.UploadImage;
 import com.example.foodordering.UserData;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,8 +19,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser user = mAuth.getCurrentUser();
-    private static final long SPLASH_TIMER = 3000;
-
+    private static final long SPLASH_TIMER = 5000;
+    UserData userData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         //  setContentView(R.layout.fragment_food_list_1_);
         // startActivity(new Intent(this,FoodItem_Activity.class));
         //  startActivity(new Intent(this, ProfileActivity.class));
-        UserData userData = new UserData();
+        userData = new UserData();
         userData.readData();
 
         spalshScreen();
@@ -46,7 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (user != null)
-                    startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
+                {
+                    if (UserData.userType.equals("Shop Keeper"))
+                    startActivity(new Intent(MainActivity.this, ShopKeeperDashboard_Activity.class));
+                    else
+                        startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));
+                }
+
                 else
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 // startActivity(new Intent(MainActivity.this, FoodDashBoard_Activity.class));

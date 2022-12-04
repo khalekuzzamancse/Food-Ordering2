@@ -55,9 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
 
                         // Log.i("Curr Logined","Successfully");
-                        UserData userData = new UserData();
-                        userData.readData();
-                        Intent i = new Intent(this, FoodDashBoard_Activity.class);
+                        Intent i = new Intent(this, MainActivity.class);
                         startActivity(i);
 
 
