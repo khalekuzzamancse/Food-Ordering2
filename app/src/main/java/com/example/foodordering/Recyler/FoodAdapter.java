@@ -103,6 +103,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
             holder.quantity.setVisibility(View.GONE);
 
         }
+        //if this adapter is used by the shopkeeper dashboard,then hide some unwanted view
         if (isShopkeeperActivity) {
             holder.spinner.setVisibility(View.GONE);
             holder.shopName.setVisibility(View.GONE);
