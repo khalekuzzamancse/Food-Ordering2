@@ -20,6 +20,7 @@ import com.example.foodordering.adapter.FoodAdapter;
 import com.example.foodordering.UserData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -104,6 +105,12 @@ public class ShopKeeperDashboard_Activity extends AppCompatActivity {
             startActivity(new Intent(this, AddItem_Activity.class));
 
         }
+        if(id==R.id.signOut)
+        {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, AddItem_Activity.class));
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
