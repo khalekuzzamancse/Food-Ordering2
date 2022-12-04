@@ -33,7 +33,7 @@ public class AddItem_Activity extends AppCompatActivity {
     ImageView img;
     Uri imageUri;
     ProgressBar progressBar;
-    EditText name, price, quantity, subTypeET, descriptionET; //ET=Edit Text
+    EditText nameET, priceET, quantityET, subTypeET, descriptionET; //ET=Edit Text
     Spinner category;
     String categoryStr = "", docId = "", subType = "";
 
@@ -63,6 +63,16 @@ public class AddItem_Activity extends AppCompatActivity {
             @Override
             public void downloadLink(Uri link) {
                 if (link != null) {
+                    //before setting the data,we have to check if the item name
+                    // and price field are empty or not
+                    //this checking will avoid 2 problems
+                    //1: if the name and price fields are empty
+                     // 1.1->then the data will not set to the the database
+                    //2:sometimes firebase write data more than one time(automatically),
+                    //2.1-> this will causes problem such as if we clear the edittext filed
+                    //2.2->then because of point 2,our currently pushed data will be replaced with
+                    //2.3->empty data
+
                     setData(link);
                     Log.i("UploadedImage", String.valueOf(link));
                     progressBar.setVisibility(View.INVISIBLE);
@@ -78,7 +88,7 @@ public class AddItem_Activity extends AppCompatActivity {
 
         upload.setOnClickListener(view -> {
             progressBar.setVisibility(View.VISIBLE);
-            docId = "khalekuzzaman91@gmail.com" + name.getText();
+            docId = "khalekuzzaman91@gmail.com" + nameET.getText();
             custom.uploadImage("FoodImages", docId, imageUri, callback);
 
         });
@@ -107,10 +117,10 @@ public class AddItem_Activity extends AppCompatActivity {
 
     void setData(Uri uri) {
         HashMap<String, Object> data = new HashMap<>();
-        data.put("Name", name.getText().toString());
-        data.put("Price", price.getText().toString());
+        data.put("Name", nameET.getText().toString());
+        data.put("Price", priceET.getText().toString());
         data.put("Category", categoryStr);
-        data.put("AvailableQuantity", quantity.getText().toString());
+        data.put("AvailableQuantity", quantityET.getText().toString());
         //checking subtype is available or not..
         subType = subTypeET.getText().toString();
         data.put("SubType", subType);
@@ -133,12 +143,20 @@ public class AddItem_Activity extends AppCompatActivity {
     private void initializeView() {
         img = findViewById(R.id.image);
         progressBar = findViewById(R.id.progressbar);
-        name = findViewById(R.id.name);
-        price = findViewById(R.id.price);
-        quantity = findViewById(R.id.quantity);
+        nameET = findViewById(R.id.name);
+        priceET = findViewById(R.id.price);
+        quantityET = findViewById(R.id.quantity);
         category = findViewById(R.id.snipper);
         subTypeET = findViewById(R.id.itemSubType);
         descriptionET = findViewById(R.id.description);
 
+    }
+    private boolean check() {
+        String name = nameET.getText().toString();
+        String price = priceET.getText().toString();
+        if (name.equals("") || price.equals(""))
+            return true;
+        else
+            return false;
     }
 }
