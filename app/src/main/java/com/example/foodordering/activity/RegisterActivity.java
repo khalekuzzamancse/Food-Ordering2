@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -27,13 +29,21 @@ public class RegisterActivity extends AppCompatActivity {
     EditText shopName, shopLocation;
     LinearLayout shopContainer;
     String userType = "";
+    String categories[]={"Customer","Shop Keeper"};
+    AutoCompleteTextView dropdownTv;
+    ArrayAdapter<String> dropDownAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
+///
+        //setting the category
+        dropdownTv=findViewById(R.id.dropdown);
+        dropDownAdapter=new ArrayAdapter<String>(this,R.layout.drop_down_item_layout,categories);
+        dropdownTv.setAdapter(dropDownAdapter);
 
-        spinner = findViewById(R.id.snipper);
+
         shopName = findViewById(R.id.shopName);
         shopLocation = findViewById(R.id.shopLocation);
         shopContainer = findViewById(R.id.shopContainer);
@@ -48,21 +58,15 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         //when a spinner item will be selected,by default the first item is selected
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        dropdownTv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 userType = (String) parent.getItemAtPosition(position);
                 if (!userType.equals("Shop Keeper")) {
                     shopContainer.setVisibility(View.GONE);
                 } else {
                     shopContainer.setVisibility(View.VISIBLE);
                 }
-                Log.i("Spinner", userType);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 

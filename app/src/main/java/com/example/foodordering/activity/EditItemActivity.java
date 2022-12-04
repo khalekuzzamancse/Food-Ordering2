@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -37,13 +39,20 @@ public class EditItemActivity extends AppCompatActivity {
     Uri imageUri;
     AppCompatButton update, deleteBT;
     String docId = "", name = "", price = "", link = "", subType = "", description = "", categoryStr = "", quantity = "";
-    Spinner category;
+    String categories[]={"Normal","Fast Food","Drink"};
+    AutoCompleteTextView dropdownTv;
+    ArrayAdapter<String> dropDownAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_item_activity);
         initializeView();
+        //setting the category
+        dropDownAdapter=new ArrayAdapter<String>(this,R.layout.drop_down_item_layout,categories);
+        dropdownTv.setAdapter(dropDownAdapter);
+
+        //
 
         //getting the data from intent
         getIntentData();
@@ -103,16 +112,11 @@ public class EditItemActivity extends AppCompatActivity {
         });
 
         ///when the use click on the spinner
-        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        dropdownTv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 categoryStr = (String) parent.getItemAtPosition(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+                Log.i("SelectedCategoty",categoryStr);
             }
         });
         deleteBT.setOnClickListener(view -> {
@@ -187,7 +191,7 @@ public class EditItemActivity extends AppCompatActivity {
         quantityET = findViewById(R.id.quantity);
         subTypeET = findViewById(R.id.itemSubType);
         descriptionET = findViewById(R.id.description);
-        category = findViewById(R.id.snipper);
+        dropdownTv=findViewById(R.id.dropdown);
         deleteBT = findViewById(R.id.delete);
 
     }

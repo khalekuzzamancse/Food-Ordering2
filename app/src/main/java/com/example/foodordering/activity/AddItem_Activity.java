@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -34,8 +36,10 @@ public class AddItem_Activity extends AppCompatActivity {
     Uri imageUri;
     ProgressBar progressBar;
     EditText nameET, priceET, quantityET, subTypeET, descriptionET; //ET=Edit Text
-    Spinner category;
     String categoryStr = "", docId = "", subType = "";
+    String categories[]={"Normal","Fast Food","Drink"};
+    AutoCompleteTextView dropdownTv;
+    ArrayAdapter<String> dropDownAdapter;
 
 
     @Override
@@ -43,6 +47,11 @@ public class AddItem_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_item_activity);
         initializeView();
+        //setting the category
+        dropDownAdapter=new ArrayAdapter<String>(this,R.layout.drop_down_item_layout,categories);
+        dropdownTv.setAdapter(dropDownAdapter);
+
+        //
 
         ActivityResultLauncher<String> resultLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
                 new ActivityResultCallback<Uri>() {
@@ -96,19 +105,16 @@ public class AddItem_Activity extends AppCompatActivity {
             custom.uploadImage("FoodImages", docId, imageUri, callback);
 
         });
-        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+        ///
+        dropdownTv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 categoryStr = (String) parent.getItemAtPosition(position);
-                //Log.i("Spinner", s);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+                Log.i("SelectedCategoty",categoryStr);
             }
         });
+
     }
 
     void showSnakbar(String msg) {
@@ -148,9 +154,9 @@ public class AddItem_Activity extends AppCompatActivity {
         nameET = findViewById(R.id.name);
         priceET = findViewById(R.id.price);
         quantityET = findViewById(R.id.quantity);
-        category = findViewById(R.id.snipper);
         subTypeET = findViewById(R.id.itemSubType);
         descriptionET = findViewById(R.id.description);
+        dropdownTv=findViewById(R.id.dropdown);
 
     }
     private boolean check() {
