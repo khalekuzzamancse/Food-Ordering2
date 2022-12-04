@@ -68,12 +68,16 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
             }
 
         });
+        // if shop keeper want to edit item details so that he click on a item
+        //from the dashboard activity
         holder.container.setOnClickListener(view -> {
             if (isShopkeeperActivity) {
                 Intent intent = new Intent(context, EditItemActivity.class);
                 intent.putExtra("name", list.get(pos).itmName);
                 intent.putExtra("price", String.valueOf(list.get(pos).price));
                 intent.putExtra("link", list.get(pos).imgUrl);
+                intent.putExtra("subType", list.get(pos).subType);
+                intent.putExtra("description", list.get(pos).description);
                 context.startActivity(intent);
             }
 

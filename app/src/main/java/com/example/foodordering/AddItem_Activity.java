@@ -11,9 +11,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 
 
 import com.example.foodordering.firebasetemplate.CallbackUploadImage;
@@ -29,8 +31,9 @@ public class AddItem_Activity extends AppCompatActivity {
     ImageView img;
     Uri imageUri;
     ProgressBar progressBar;
-    EditText name, price, quantity, type;
-    String docId = "";
+    EditText name, price, quantity, subTypeET, descriptionET; //ET=Edit Text
+    Spinner category;
+    String categoryStr = "", docId = "", subType = "";
 
 
     @Override
@@ -77,6 +80,19 @@ public class AddItem_Activity extends AppCompatActivity {
             custom.uploadImage("FoodImages", docId, imageUri, callback);
 
         });
+        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                categoryStr = (String) parent.getItemAtPosition(position);
+                //Log.i("Spinner", s);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     void showSnakbar(String msg) {
@@ -86,24 +102,30 @@ public class AddItem_Activity extends AppCompatActivity {
         snackbar.show();
     }
 
+
     void setData(Uri uri) {
         HashMap<String, Object> data = new HashMap<>();
         data.put("Name", name.getText().toString());
         data.put("Price", price.getText().toString());
-        data.put("Type", type.getText().toString());
-        data.put("Available Quantity", quantity.getText().toString());
+        data.put("Category", categoryStr);
+        data.put("AvailableQuantity", quantity.getText().toString());
+        //checking subtype is available or not..
+        subType = subTypeET.getText().toString();
+        data.put("SubType", subType);
+        //
+        data.put("Description", descriptionET.getText().toString());
         data.put("URL", uri.toString());
         ///
-        data.put("OwnerID","khalekuzzaman@gmail.com");
-        //shopname
-        data.put("Shop Name","Azad Store");
-
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        //  data.put("Owner", );
+        data.put("OwnerID", UserData.email);
+        //shop name
+        data.put("Shop Name", UserData.shopName);
+        Log.i("DataChecked", String.valueOf(data));
         FirebaseCustom db = new DatabaseFetch();
         //  String docId = auth.getCurrentUser().getEmail();
         db.addDocument("FoodItem", docId, data);
-      //  clearView();
+        //refresh the activity
+        finish();
+        startActivity(getIntent());
     }
 
     private void initializeView() {
@@ -112,14 +134,9 @@ public class AddItem_Activity extends AppCompatActivity {
         name = findViewById(R.id.name);
         price = findViewById(R.id.price);
         quantity = findViewById(R.id.quantity);
-        type = findViewById(R.id.type);
-    }
+        category = findViewById(R.id.snipper);
+        subTypeET = findViewById(R.id.itemSubType);
+        descriptionET = findViewById(R.id.description);
 
-    private void clearView() {
-
-        name.setText("");
-        price.setText("");
-        quantity.setText("");
-        type.setText("");
     }
 }

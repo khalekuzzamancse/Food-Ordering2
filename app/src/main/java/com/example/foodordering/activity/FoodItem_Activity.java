@@ -43,12 +43,14 @@ public class FoodItem_Activity extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.i("Getted", document.getId() + " => " + document.getData());
+                        //  Log.i("Getted", document.getId() + " => " + document.getData());
                         String itemName = (String) document.get("Name");
                         String shopName = (String) document.get("Shop Name");
                         String price = (String) document.get("Price");
                         String url = (String) document.get("URL");
-                        list.add(new Domain_FoodList(itemName, Integer.parseInt(price), shopName, url));
+                        String subType = (String) document.get("SubType");
+                        String description = (String) document.get("Description");
+                        list.add(new Domain_FoodList(itemName, Integer.parseInt(price), shopName, url, subType, description));
                     }
 
                     adapter = new FoodAdapter(FoodItem_Activity.this, list);
