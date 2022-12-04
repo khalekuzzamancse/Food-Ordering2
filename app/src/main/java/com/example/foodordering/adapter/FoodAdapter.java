@@ -113,7 +113,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
 
             }
         });
+        //if the user click on the image,then product details will be shown
         holder.img.setOnClickListener(view -> {
+            //if the user is a customer
+            //then we show the description dialog
+            //a custom never can access the  isShopkeeperActivity
+            //if  isShopkeeperActivity==false that means the user is not in  isShopkeeperActivity
+            //only the shop keeper can access  isShopkeeperActivity
+            if(!isShopkeeperActivity)
            showDialoge(list.get(pos).description);
 
 

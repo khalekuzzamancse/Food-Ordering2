@@ -35,7 +35,7 @@ public class EditItemActivity extends AppCompatActivity {
     ProgressBar progressBar;
     ImageView img;
     Uri imageUri;
-    AppCompatButton update;
+    AppCompatButton update, deleteBT;
     String docId = "", name = "", price = "", link = "", subType = "", description = "", categoryStr = "", quantity = "";
     Spinner category;
 
@@ -115,6 +115,11 @@ public class EditItemActivity extends AppCompatActivity {
 
             }
         });
+        deleteBT.setOnClickListener(view -> {
+            String docId = UserData.email + name;
+            new DatabaseFetch().deleteDocument("FoodItem", docId);
+            onNavigateUp();
+        });
 
 
     }
@@ -166,7 +171,6 @@ public class EditItemActivity extends AppCompatActivity {
     }
 
 
-
     void showSnackbar(String msg) {
         Snackbar snackbar = Snackbar
                 .make(img, msg, Snackbar.LENGTH_LONG);
@@ -184,6 +188,8 @@ public class EditItemActivity extends AppCompatActivity {
         subTypeET = findViewById(R.id.itemSubType);
         descriptionET = findViewById(R.id.description);
         category = findViewById(R.id.snipper);
+        deleteBT = findViewById(R.id.delete);
+
     }
 
     private void getIntentData() {
@@ -221,7 +227,7 @@ public class EditItemActivity extends AppCompatActivity {
         //2:we need the updated data on the previous activity
         //3:so we replace the back button
         ///<---- caution---->
-         //1: if we have a idea to refresh the previous activity recycler
+        //1: if we have a idea to refresh the previous activity recycler
         //2:then you can skip this technique
         onNavigateUp();
     }
