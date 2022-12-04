@@ -221,13 +221,8 @@ public class EditItemActivity extends AppCompatActivity {
         //2:we need the updated data on the previous activity
         //3:so we replace the back button
         ///<---- caution---->
-        //Caution: this is bad idea to to back again using Intent because
-        //1: this will create a new Intent and push it to the back stack
-        //2:as a result app performance will decrease
-        //3:since at this moment I have no idea how to update the previous activity recycler
-        //4: that is why I use this technique
-        //5: when I got a better solution (insha-allah) to update the previous page recycler then
-        //6: I will not use this technique any more
-        startActivity(new Intent(this,ShopKeeperDashboard_Activity.class));
+         //1: if we have a idea to refresh the previous activity recycler
+        //2:then you can skip this technique
+        onNavigateUp();
     }
 }
