@@ -1,5 +1,6 @@
 package com.example.foodordering.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,7 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,9 +20,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.foodordering.ExampleDialog;
 import com.example.foodordering.activity.EditItemActivity;
 import com.example.foodordering.R;
 import com.example.foodordering.activity.Cart_Activity;
@@ -101,6 +107,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
 
             }
         });
+        holder.img.setOnClickListener(view -> {
+           showDialoge(list.get(pos).description);
+
+
+        });
 
         //
 
@@ -148,6 +159,23 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
         notifyDataSetChanged();
     }
 
+    void showDialoge(String des) {
+        Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.diagloug_description);
+        dialog.show();
+        Window window = dialog.getWindow();
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        TextView tv = dialog.findViewById(R.id.description);
+        tv.setText(des);
+        Button ok = dialog.findViewById(R.id.ok);
+        ok.setOnClickListener(view -> {
+            dialog.dismiss();
+        });
+
+    }
+    ///
+    ////
+    // <----------ViewHolder class ------------>
     public class Viewholder extends RecyclerView.ViewHolder {
 
         public TextView ItemName, ItemPrice, tot_price, quantity, shopName;
