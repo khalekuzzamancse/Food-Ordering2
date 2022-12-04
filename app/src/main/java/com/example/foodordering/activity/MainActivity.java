@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.view.WindowManager;
 
 import com.example.foodordering.R;
-import com.example.foodordering.ShopKeeperDashboard_Activity;
 import com.example.foodordering.UserData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

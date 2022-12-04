@@ -1,4 +1,4 @@
-package com.example.foodordering;
+package com.example.foodordering.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.example.foodordering.R;
+import com.example.foodordering.activity.AddItem_Activity;
 
 public class ProfileActivity extends AppCompatActivity {
     Toolbar toolbar;

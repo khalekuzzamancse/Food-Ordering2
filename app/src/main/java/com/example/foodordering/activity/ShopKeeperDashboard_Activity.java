@@ -1,4 +1,4 @@
-package com.example.foodordering;
+package com.example.foodordering.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,14 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.foodordering.Recyler.Domain_FoodList;
-import com.example.foodordering.Recyler.FoodAdapter;
+import com.example.foodordering.R;
+import com.example.foodordering.adapter.Domain_FoodList;
+import com.example.foodordering.adapter.FoodAdapter;
+import com.example.foodordering.UserData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;

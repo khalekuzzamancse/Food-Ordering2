@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.foodordering.R;
-import com.example.foodordering.Recyler.FoodAdapter;
-import com.example.foodordering.Recyler.Domain_FoodList;
+import com.example.foodordering.adapter.FoodAdapter;
+import com.example.foodordering.adapter.Domain_FoodList;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;

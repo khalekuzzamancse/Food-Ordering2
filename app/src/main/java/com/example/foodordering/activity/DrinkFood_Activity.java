@@ -7,11 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.foodordering.R;
-import com.example.foodordering.Recyler.FoodAdapter;
-import com.example.foodordering.Recyler.Domain_FoodList;
+import com.example.foodordering.adapter.FoodAdapter;
+import com.example.foodordering.adapter.Domain_FoodList;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;

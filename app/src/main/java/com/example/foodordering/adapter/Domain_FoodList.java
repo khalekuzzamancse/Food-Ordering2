@@ -1,4 +1,4 @@
-package com.example.foodordering.Recyler;
+package com.example.foodordering.adapter;
 
 public class Domain_FoodList {
     public String itmName, shopName, imgUrl,subType,description;

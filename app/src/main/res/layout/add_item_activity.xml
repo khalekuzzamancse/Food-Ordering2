@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_margin="16dp"
         android:orientation="vertical"
-        tools:context=".AddItem_Activity">
+        tools:context=".activity.AddItem_Activity">
 
         <EditText
             android:layout_margin="4dp"

@@ -1,4 +1,4 @@
-package com.example.foodordering;
+package com.example.foodordering.activity;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -19,6 +19,8 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.bumptech.glide.Glide;
+import com.example.foodordering.R;
+import com.example.foodordering.UserData;
 import com.example.foodordering.firebasetemplate.CallbackUploadImage;
 import com.example.foodordering.firebasetemplate.DatabaseFetch;
 import com.example.foodordering.firebasetemplate.FirebaseCustom;
@@ -29,12 +31,12 @@ import java.util.HashMap;
 
 public class EditItemActivity extends AppCompatActivity {
 
-    EditText namE, pricE, quantity, subTypeET, descriptionET; //ET=Edit Text
+    EditText namE, pricE, quantityET, subTypeET, descriptionET; //ET=Edit Text
     ProgressBar progressBar;
     ImageView img;
     Uri imageUri;
     AppCompatButton update;
-    String docId = "", name, price, link, subType = "", description, categoryStr = "";
+    String docId = "", name = "", price = "", link = "", subType = "", description = "", categoryStr = "", quantity = "";
     Spinner category;
 
     @Override
@@ -42,21 +44,13 @@ public class EditItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_item_activity);
         initializeView();
-        Intent intent = getIntent();
-        name = intent.getStringExtra("name");
-        price = intent.getStringExtra("price");
-        link = intent.getStringExtra("link");
-        subType = intent.getStringExtra("subType");
-        description = intent.getStringExtra("description");
 
-        Log.i("DataRecieved", name + " " + price + " " + link);
-        namE.setText(name);
-        pricE.setText(price);
-        subTypeET.setText(subType);
-        descriptionET.setText(description);
-        Glide.with(img.getContext()).load(Uri.parse(link)).into(img);
+        //getting the data from intent
+        getIntentData();
+        //setting the data after the getting the from intent
+        setIntentData();
 
-
+// crating a result launcher for picking image form gallery
         ActivityResultLauncher<String> resultLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
                 new ActivityResultCallback<Uri>() {
                     @Override
@@ -69,10 +63,13 @@ public class EditItemActivity extends AppCompatActivity {
                             img.setImageURI(result);
                     }
                 });
+
+        ///if the user click on the image to pick a new image
         img.setOnClickListener(view -> {
             resultLauncher.launch("image/*");
 
         });
+        //creating the custom firebase class object to use it method
         FirebaseCustom custom = new DatabaseFetch();
         ///callback when upload complete
         CallbackUploadImage callback = new CallbackUploadImage() {
@@ -81,15 +78,16 @@ public class EditItemActivity extends AppCompatActivity {
                 if (link != null) {
                     setData(link);
                     Log.i("UploadedImage", String.valueOf(link));
-                  //  progressBar.setVisibility(View.INVISIBLE);
+                    //  progressBar.setVisibility(View.INVISIBLE);
                     img.setImageResource(R.drawable.vector);
-                    showSnakbar("Uploaded Successfully");
+                    showSnackbar("Uploaded Successfully");
 
 
                 } else
                     Log.i("UploadedImage", "fail");
             }
         };
+        //when the user click on the update button
         update.setOnClickListener(view -> {
             // progressBar.setVisibility(View.VISIBLE);
             docId = UserData.email + name;
@@ -98,14 +96,13 @@ public class EditItemActivity extends AppCompatActivity {
                 custom.uploadImage("FoodImages", docId, imageUri, callback);
             else {
                 setData(Uri.parse(link));
-
-                showSnakbar("Updated Successfully");
+                showSnackbar("Updated Successfully");
 
             }
 
-
         });
 
+        ///when the use click on the spinner
         category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -128,12 +125,25 @@ public class EditItemActivity extends AppCompatActivity {
 
     void setData(Uri uri) {
         HashMap<String, Object> data = new HashMap<>();
-        data.put("Name", namE.getText().toString());
-        data.put("Price", pricE.getText().toString());
+        //updating the string,if use made changes
+        name = namE.getText().toString();
+        data.put("Name", name);
+        //
+        price = pricE.getText().toString();
+        data.put("Price", price);
+        //
+
         data.put("Category", categoryStr);
-        data.put("SubType", subTypeET.getText().toString());
-        data.put("Available Quantity", quantity.getText().toString());
-        data.put("Description", descriptionET.getText().toString());
+        //
+        subType = subTypeET.getText().toString();
+        data.put("SubType", subType);
+        //
+        quantity = quantityET.getText().toString();
+        data.put("Available Quantity", quantity);
+        //
+        description = descriptionET.getText().toString();
+        data.put("Description", description);
+        ///fetching the user info form the UserData class
         data.put("OwnerID", UserData.email);
         data.put("Shop Name", UserData.shopName);
 
@@ -143,19 +153,22 @@ public class EditItemActivity extends AppCompatActivity {
         else
             data.put("URL", link);
 
-        //shopname
 
         ///
         FirebaseCustom db = new DatabaseFetch();
         //  String docId = auth.getCurrentUser().getEmail();
         db.addDocument("FoodItem", docId, data);
         //refresh the activity
-         finish();
-        startActivity(getIntent());
+//        finish();
+//        startActivity(getIntent());
+        //after refreshing setting the updated data
+        setUpdate();
 
     }
 
-    void showSnakbar(String msg) {
+
+
+    void showSnackbar(String msg) {
         Snackbar snackbar = Snackbar
                 .make(img, msg, Snackbar.LENGTH_LONG);
         snackbar.setBackgroundTint(ContextCompat.getColor(this, R.color.purple_500));
@@ -168,10 +181,36 @@ public class EditItemActivity extends AppCompatActivity {
         pricE = findViewById(R.id.price);
         img = findViewById(R.id.image);
         update = findViewById(R.id.upload);
-        quantity = findViewById(R.id.quantity);
+        quantityET = findViewById(R.id.quantity);
         subTypeET = findViewById(R.id.itemSubType);
         descriptionET = findViewById(R.id.description);
         category = findViewById(R.id.snipper);
     }
 
+    private void getIntentData() {
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
+        price = intent.getStringExtra("price");
+        link = intent.getStringExtra("link");
+        subType = intent.getStringExtra("subType");
+        description = intent.getStringExtra("description");
+    }
+
+    private void setIntentData() {
+        namE.setText(name);
+        pricE.setText(price);
+        subTypeET.setText(subType);
+        descriptionET.setText(description);
+        Glide.with(img.getContext()).load(Uri.parse(link)).into(img);
+
+    }
+
+
+    private void setUpdate() {
+        namE.setText(name);
+        pricE.setText(price);
+        subTypeET.setText(subType);
+        quantityET.setText(quantity);
+        descriptionET.setText(description);
+    }
 }

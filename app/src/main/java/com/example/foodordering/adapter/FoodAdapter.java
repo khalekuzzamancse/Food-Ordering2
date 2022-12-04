@@ -1,4 +1,4 @@
-package com.example.foodordering.Recyler;
+package com.example.foodordering.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodordering.EditItemActivity;
+import com.example.foodordering.activity.EditItemActivity;
 import com.example.foodordering.R;
 import com.example.foodordering.activity.Cart_Activity;
 import com.google.android.material.snackbar.Snackbar;

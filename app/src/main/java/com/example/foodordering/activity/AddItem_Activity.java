@@ -1,4 +1,4 @@
-package com.example.foodordering;
+package com.example.foodordering.activity;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -18,6 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 
+import com.example.foodordering.R;
+import com.example.foodordering.UserData;
 import com.example.foodordering.firebasetemplate.CallbackUploadImage;
 import com.example.foodordering.firebasetemplate.DatabaseFetch;
 import com.example.foodordering.firebasetemplate.FirebaseCustom;

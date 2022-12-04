@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ShopKeeperDashboard_Activity">
+    tools:context=".activity.ShopKeeperDashboard_Activity">
     <include layout="@layout/toolbar" />
     <LinearLayout
         android:padding="8dp"

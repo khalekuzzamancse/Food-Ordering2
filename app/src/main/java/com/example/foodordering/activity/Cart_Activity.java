@@ -13,8 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.foodordering.R;
-import com.example.foodordering.Recyler.Domain_FoodList;
-import com.example.foodordering.Recyler.FoodAdapter;
+import com.example.foodordering.adapter.Domain_FoodList;
+import com.example.foodordering.adapter.FoodAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

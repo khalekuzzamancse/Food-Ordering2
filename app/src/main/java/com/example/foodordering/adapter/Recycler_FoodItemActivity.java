@@ -1,4 +1,4 @@
-package com.example.foodordering.Recyler;
+package com.example.foodordering.adapter;
 
 import android.content.Context;
 import android.util.Log;

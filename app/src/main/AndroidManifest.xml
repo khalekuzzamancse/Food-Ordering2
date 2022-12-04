@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         tools:targetApi="31">
         <activity
-            android:name=".EditItemActivity"
+            android:name=".activity.EditItemActivity"
             android:theme="@style/Theme.FoodOrdering"
             android:exported="false">
             <meta-data
@@ -20,7 +20,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ShopKeeperDashboard_Activity"
+            android:name=".activity.ShopKeeperDashboard_Activity"
             android:exported="false"
             android:theme="@style/Theme.FoodOrdering2">
             <meta-data
@@ -28,7 +28,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activity.ProfileActivity"
             android:exported="false"
             android:theme="@style/Theme.FoodOrdering2">
             <meta-data
@@ -36,7 +36,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddItem_Activity"
+            android:name=".activity.AddItem_Activity"
             android:exported="false"
             android:theme="@style/Theme.FoodOrdering">
             <meta-data
