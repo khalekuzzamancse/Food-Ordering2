@@ -3,20 +3,27 @@ package com.example.foodordering;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.foodordering.Recyler.Domain_FoodList;
 import com.example.foodordering.Recyler.FoodAdapter;
 import com.example.foodordering.activity.FoodItem_Activity;
+import com.example.foodordering.activity.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -45,6 +52,10 @@ public class ShopKeeperDashboard_Activity extends AppCompatActivity {
         name.setText("Pro: " + UserData.name);
         email.setText("Email : " + UserData.email);
         phoneNo.setText("Phone : " + UserData.phone);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Food Delivery App");
 
         list = new ArrayList<>();
 
@@ -79,6 +90,23 @@ public class ShopKeeperDashboard_Activity extends AppCompatActivity {
         snapshotTask.addOnCompleteListener(callback);
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+        new MenuInflater(this).inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.addItem) {
+            startActivity(new Intent(this, UploadImage.class));
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
