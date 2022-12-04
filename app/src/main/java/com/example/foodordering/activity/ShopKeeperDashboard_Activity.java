@@ -108,7 +108,7 @@ public class ShopKeeperDashboard_Activity extends AppCompatActivity {
         if(id==R.id.signOut)
         {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, AddItem_Activity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
