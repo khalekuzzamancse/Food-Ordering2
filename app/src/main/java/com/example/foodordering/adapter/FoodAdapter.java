@@ -54,10 +54,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
 
         // 1:if the item subtype id available
         // 2:then we want to show the subtype with the name
-        String name=list.get(pos).itmName;
-        String subtype=list.get(pos).subType;
-        if(!subtype.equals(""))
-            name=name+" ("+subtype+" )";
+        String name = list.get(pos).itmName;
+        String subtype = list.get(pos).subType;
+        if (!subtype.equals(""))
+            name = name + " (" + subtype + " )";
         //
         holder.ItemName.setText(name);
         //
@@ -120,8 +120,17 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
             //a custom never can access the  isShopkeeperActivity
             //if  isShopkeeperActivity==false that means the user is not in  isShopkeeperActivity
             //only the shop keeper can access  isShopkeeperActivity
-            if(!isShopkeeperActivity)
-           showDialoge(list.get(pos).description);
+            if (!isShopkeeperActivity)
+                showDialoge(list.get(pos).description);
+            else {
+                Intent intent = new Intent(context, EditItemActivity.class);
+                intent.putExtra("name", list.get(pos).itmName);
+                intent.putExtra("price", String.valueOf(list.get(pos).price));
+                intent.putExtra("link", list.get(pos).imgUrl);
+                intent.putExtra("subType", list.get(pos).subType);
+                intent.putExtra("description", list.get(pos).description);
+                context.startActivity(intent);
+            }
 
 
         });
@@ -186,6 +195,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.Viewholder> {
         });
 
     }
+
     ///
     ////
     // <----------ViewHolder class ------------>

@@ -22,7 +22,7 @@
             android:layout_margin="8dp"
             style="@style/TextInputLayout"
             android:hint="Item Name"
-            app:startIconDrawable="@drawable/icon_person">
+            app:startIconDrawable="@drawable/food_name_icon">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/name"
                 style="@style/TextInputEditText" />
@@ -38,7 +38,7 @@
             android:layout_margin="8dp"
             style="@style/TextInputLayout"
             android:hint="Price"
-            app:startIconDrawable="@drawable/icon_person">
+            app:startIconDrawable="@drawable/ic_price">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/price"
                 android:inputType="number"
@@ -63,7 +63,7 @@
             android:layout_margin="8dp"
             style="@style/TextInputLayout"
             android:hint="Subtype"
-            app:startIconDrawable="@drawable/icon_person">
+            app:startIconDrawable="@drawable/ic_category">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/itemSubType"
                 style="@style/TextInputEditText" />
@@ -79,7 +79,7 @@
             android:layout_margin="8dp"
             style="@style/TextInputLayout"
             android:hint="Quantity"
-            app:startIconDrawable="@drawable/icon_person">
+            app:startIconDrawable="@drawable/ic_qauntity">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/quantity"
                 android:inputType="number"
@@ -96,7 +96,7 @@
             android:layout_margin="8dp"
             style="@style/TextInputLayout"
             android:hint="Description"
-            app:startIconDrawable="@drawable/icon_person">
+            app:startIconDrawable="@drawable/ic_description">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/description"
                 android:inputType="textMultiLine"
